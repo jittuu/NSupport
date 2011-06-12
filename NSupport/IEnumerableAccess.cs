@@ -14,5 +14,15 @@
                 }
             }
         }
+
+        public static IEnumerable<T> To<T>(this IEnumerable<T> source, int index) {
+            int localIndex = 0;
+
+            foreach (var item in source) {
+                if (localIndex++ <= index) {
+                    yield return item;
+                }
+            }
+        }
     }
 }
