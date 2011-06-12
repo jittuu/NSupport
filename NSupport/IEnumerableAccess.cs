@@ -6,23 +6,11 @@
 
     public static class IEnumerableAccess {
         public static IEnumerable<T> From<T>(this IEnumerable<T> source, int index) {
-            int localIndex = 0;
-
-            foreach (var item in source) {
-                if (localIndex++ >= index) {
-                    yield return item;
-                }
-            }
+            return source.Skip(index);
         }
 
         public static IEnumerable<T> To<T>(this IEnumerable<T> source, int index) {
-            int localIndex = 0;
-
-            foreach (var item in source) {
-                if (localIndex++ <= index) {
-                    yield return item;
-                }
-            }
+            return source.Take(++index);
         }
     }
 }
