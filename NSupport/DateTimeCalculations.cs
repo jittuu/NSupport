@@ -20,5 +20,9 @@
         public static DateTime LastYear(this DateTime source) {
             return source.AddYears(-1);
         }
+
+        public static DateTime NextMonth(this DateTime source) {
+            return source.AddMonths(1);
+        }
     }
 }
