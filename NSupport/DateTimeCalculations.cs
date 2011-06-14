@@ -32,5 +32,9 @@
         public static DateTime BeginningOfDay(this DateTime source) {
             return source.Date;
         }
+
+        public static DateTime BeginningOfMonth(this DateTime source) {
+            return new DateTime(source.Year, source.Month, 1);
+        }
     }
 }
