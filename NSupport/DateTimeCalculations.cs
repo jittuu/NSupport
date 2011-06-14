@@ -88,5 +88,10 @@
             var quarterMonth = new int[] { 10, 7, 4, 1 }.First(m => m <= source.Month);
             return new DateTime(source.Year, quarterMonth, 1);
         }
+
+        public static DateTime EndOfQuarter(this DateTime source) {
+            var quarterMonth = new int[] { 3, 6, 9, 12 }.First(m => m >= source.Month);
+            return new DateTime(source.Year, quarterMonth, 1).EndOfMonth();
+        }
     }
 }
