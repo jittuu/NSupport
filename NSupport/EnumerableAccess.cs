@@ -4,7 +4,7 @@
     using System.Linq;
     using System.Text;
 
-    public static class IEnumerableAccess {
+    public static class EnumerableAccess {
         public static IEnumerable<T> From<T>(this IEnumerable<T> source, int index) {
             return source.Skip(index);
         }
