@@ -33,6 +33,10 @@
             return source.Date;
         }
 
+        public static DateTime Midnight(this DateTime source) {
+            return source.BeginningOfDay();
+        }
+
         public static DateTime EndOfDay(this DateTime source) {
             return source.Tomorrow().Date.AddSeconds(-1);
         }

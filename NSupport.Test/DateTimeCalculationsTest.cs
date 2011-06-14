@@ -48,6 +48,11 @@
         }
 
         [Fact]
+        public void Test_Midnight() {
+            Assert.Equal(new DateTime(2011, 6, 14, 0, 0, 0), new DateTime(2011, 6, 14, 10, 0, 0).Midnight());
+        }
+
+        [Fact]
         public void Test_EndOfDay() {
             Assert.Equal(new DateTime(2011, 6, 14, 23, 59, 59), new DateTime(2011, 6, 14, 10, 0, 0).EndOfDay());
         }
