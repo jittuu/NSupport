@@ -26,8 +26,8 @@
         }
 
         [Fact]
-        public void Test_LastYear() {
-            Assert.Equal(new DateTime(2009, 1, 14), new DateTime(2010, 1, 14).LastYear());
+        public void Test_PreviousYear() {
+            Assert.Equal(new DateTime(2009, 1, 14), new DateTime(2010, 1, 14).PreviousYear());
         }
 
         [Fact]
@@ -37,9 +37,9 @@
         }
 
         [Fact]
-        public void Test_LastMonth() {
-            Assert.Equal(new DateTime(2010, 1, 14), new DateTime(2010, 2, 14).LastMonth());
-            Assert.Equal(new DateTime(2009, 12, 14), new DateTime(2010, 1, 14).LastMonth()); // between years
+        public void Test_PreviousMonth() {
+            Assert.Equal(new DateTime(2010, 1, 14), new DateTime(2010, 2, 14).PreviousMonth());
+            Assert.Equal(new DateTime(2009, 12, 14), new DateTime(2010, 1, 14).PreviousMonth()); // between years
         }
     }
 }

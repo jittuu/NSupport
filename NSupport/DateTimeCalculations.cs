@@ -17,7 +17,7 @@
             return source.AddYears(1);
         }
 
-        public static DateTime LastYear(this DateTime source) {
+        public static DateTime PreviousYear(this DateTime source) {
             return source.AddYears(-1);
         }
 
@@ -25,7 +25,7 @@
             return source.AddMonths(1);
         }
 
-        public static DateTime LastMonth(this DateTime source) {
+        public static DateTime PreviousMonth(this DateTime source) {
             return source.AddMonths(-1);
         }
     }
