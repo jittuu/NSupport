@@ -83,5 +83,10 @@
 
             return nextWeek;
         }
+
+        public static DateTime BeginningOfQuarter(this DateTime source) {            
+            var quarterMonth = new int[] { 10, 7, 4, 1 }.First(m => m <= source.Month);
+            return new DateTime(source.Year, quarterMonth, 1);
+        }
     }
 }

@@ -121,6 +121,29 @@
         [Fact]
         public void Test_NextWeek_with_day() {
             Assert.Equal(new DateTime(2011, 6, 23, 0, 0, 0), new DateTime(2011, 6, 14, 10, 0, 0).NextWeek(day: DayOfWeek.Thursday));
-        }        
+        }
+
+        [Fact]
+        public void Test_BeginningOfQuarter() {
+            // first quarter
+            Assert.Equal(new DateTime(2011, 1, 1, 0, 0, 0), new DateTime(2011, 1, 14, 10, 0, 0).BeginningOfQuarter());
+            Assert.Equal(new DateTime(2011, 1, 1, 0, 0, 0), new DateTime(2011, 2, 23, 10, 0, 0).BeginningOfQuarter());
+            Assert.Equal(new DateTime(2011, 1, 1, 0, 0, 0), new DateTime(2011, 3, 31, 10, 0, 0).BeginningOfQuarter());
+            
+            // second quarter
+            Assert.Equal(new DateTime(2011, 4, 1, 0, 0, 0), new DateTime(2011, 4, 14, 10, 0, 0).BeginningOfQuarter());
+            Assert.Equal(new DateTime(2011, 4, 1, 0, 0, 0), new DateTime(2011, 5, 23, 10, 0, 0).BeginningOfQuarter());
+            Assert.Equal(new DateTime(2011, 4, 1, 0, 0, 0), new DateTime(2011, 6, 30, 10, 0, 0).BeginningOfQuarter());
+
+            // third quarter
+            Assert.Equal(new DateTime(2011, 7, 1, 0, 0, 0), new DateTime(2011, 7, 14, 10, 0, 0).BeginningOfQuarter());
+            Assert.Equal(new DateTime(2011, 7, 1, 0, 0, 0), new DateTime(2011, 8, 23, 10, 0, 0).BeginningOfQuarter());
+            Assert.Equal(new DateTime(2011, 7, 1, 0, 0, 0), new DateTime(2011, 9, 30, 10, 0, 0).BeginningOfQuarter());
+
+            // last quarter
+            Assert.Equal(new DateTime(2011, 10, 1, 0, 0, 0), new DateTime(2011, 10, 14, 10, 0, 0).BeginningOfQuarter());
+            Assert.Equal(new DateTime(2011, 10, 1, 0, 0, 0), new DateTime(2011, 11, 23, 10, 0, 0).BeginningOfQuarter());
+            Assert.Equal(new DateTime(2011, 10, 1, 0, 0, 0), new DateTime(2011, 12, 31, 10, 0, 0).BeginningOfQuarter());
+        }
     }
 }
