@@ -51,5 +51,10 @@
         public void Test_BeginningOfMonth() {
             Assert.Equal(new DateTime(2011, 6, 1, 0, 0, 0), new DateTime(2011, 6, 14, 10, 0, 0).BeginningOfMonth());
         }
+
+        [Fact]
+        public void Test_BeginningOfYear() {
+            Assert.Equal(new DateTime(2011, 1, 1, 0, 0, 0), new DateTime(2011, 6, 14, 10, 0, 0).BeginningOfYear());
+        }
     }
 }
