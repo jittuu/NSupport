@@ -63,6 +63,10 @@
             return beginningOfWeek.BeginningOfDay();
         }
 
+        public static DateTime EndOfWeek(this DateTime source) {
+            return source.NextWeek().BeginningOfWeek().AddSeconds(-1);
+        }
+
         public static DateTime NextWeek(this DateTime source) {
             return source.AddDays(7).BeginningOfDay();
         }

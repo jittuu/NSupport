@@ -91,6 +91,24 @@
         }
 
         [Fact]
+        public void Test_EndOfWeek() {
+            Assert.Equal(new DateTime(2011, 6, 18, 23, 59, 59), new DateTime(2011, 6, 14, 10, 0, 0).EndOfWeek());
+        }
+
+        [Fact]
+        public void Test_EndOfWeek_with_custom_FirstDayOfWeek_culture() {
+            var currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            var culture = new System.Globalization.CultureInfo("en-US", true);
+            culture.DateTimeFormat.FirstDayOfWeek = DayOfWeek.Monday;
+            System.Threading.Thread.CurrentThread.CurrentCulture = culture;
+
+            Assert.Equal(new DateTime(2011, 6, 19, 23, 59, 59), new DateTime(2011, 6, 14, 10, 0, 0).EndOfWeek());
+
+            System.Threading.Thread.CurrentThread.CurrentCulture = currentCulture; // reset to currentCulture
+        }
+
+        [Fact]
         public void Test_NextWeek() {
             Assert.Equal(new DateTime(2011, 6, 21, 0, 0, 0), new DateTime(2011, 6, 14, 10, 0, 0).NextWeek());
         }
