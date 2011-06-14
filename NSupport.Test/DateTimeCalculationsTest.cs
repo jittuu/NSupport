@@ -24,5 +24,10 @@
         public void Test_NextYear() {
             Assert.Equal(new DateTime(2011, 1, 14), new DateTime(2010, 1, 14).NextYear());
         }
+
+        [Fact]
+        public void Test_LastYear() {
+            Assert.Equal(new DateTime(2009, 1, 14), new DateTime(2010, 1, 14).LastYear());
+        }
     }
 }

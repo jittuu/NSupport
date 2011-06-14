@@ -16,5 +16,9 @@
         public static DateTime NextYear(this DateTime source) {
             return source.AddYears(1);
         }
+
+        public static DateTime LastYear(this DateTime source) {
+            return source.AddYears(-1);
+        }
     }
 }
