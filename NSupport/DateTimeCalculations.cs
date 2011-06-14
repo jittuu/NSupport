@@ -24,5 +24,9 @@
         public static DateTime NextMonth(this DateTime source) {
             return source.AddMonths(1);
         }
+
+        public static DateTime LastMonth(this DateTime source) {
+            return source.AddMonths(-1);
+        }
     }
 }
