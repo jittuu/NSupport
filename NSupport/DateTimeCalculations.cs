@@ -28,5 +28,9 @@
         public static DateTime PreviousMonth(this DateTime source) {
             return source.AddMonths(-1);
         }
+
+        public static DateTime BeginningOfDay(this DateTime source) {
+            return source.Date;
+        }
     }
 }
