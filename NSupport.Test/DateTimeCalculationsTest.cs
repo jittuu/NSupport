@@ -48,6 +48,11 @@
         }
 
         [Fact]
+        public void Test_EndOfDay() {
+            Assert.Equal(new DateTime(2011, 6, 14, 23, 59, 59), new DateTime(2011, 6, 14, 10, 0, 0).EndOfDay());
+        }
+
+        [Fact]
         public void Test_BeginningOfMonth() {
             Assert.Equal(new DateTime(2011, 6, 1, 0, 0, 0), new DateTime(2011, 6, 14, 10, 0, 0).BeginningOfMonth());
         }
@@ -83,6 +88,6 @@
         [Fact]
         public void Test_NextWeek_with_day() {
             Assert.Equal(new DateTime(2011, 6, 23, 0, 0, 0), new DateTime(2011, 6, 14, 10, 0, 0).NextWeek(day: DayOfWeek.Thursday));
-        }
+        }        
     }
 }

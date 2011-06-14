@@ -33,6 +33,10 @@
             return source.Date;
         }
 
+        public static DateTime EndOfDay(this DateTime source) {
+            return source.Tomorrow().Date.AddSeconds(-1);
+        }
+
         public static DateTime BeginningOfMonth(this DateTime source) {
             return new DateTime(source.Year, source.Month, 1);
         }
