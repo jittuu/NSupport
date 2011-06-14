@@ -56,5 +56,19 @@
         public void Test_BeginningOfYear() {
             Assert.Equal(new DateTime(2011, 1, 1, 0, 0, 0), new DateTime(2011, 6, 14, 10, 0, 0).BeginningOfYear());
         }
+
+        [Fact]
+        public void Test_BeginningOfWeek() {
+            Assert.Equal(new DateTime(2011, 6, 12, 0, 0, 0), new DateTime(2011, 6, 14, 10, 0, 0).BeginningOfWeek());
+        }
+
+        [Fact]
+        public void Test_BeginningOfWeek_with_custom_FirstDayOfWeek_culture() {
+            var culture = new System.Globalization.CultureInfo("en-US", true);
+            culture.DateTimeFormat.FirstDayOfWeek = DayOfWeek.Monday;
+            System.Threading.Thread.CurrentThread.CurrentCulture = culture;
+
+            Assert.Equal(new DateTime(2011, 6, 13, 0, 0, 0), new DateTime(2011, 6, 14, 10, 0, 0).BeginningOfWeek());
+        }
     }
 }

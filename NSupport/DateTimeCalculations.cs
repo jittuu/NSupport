@@ -40,5 +40,15 @@
         public static DateTime BeginningOfYear(this DateTime source) {
             return new DateTime(source.Year, 1, 1);
         }
+
+        public static DateTime BeginningOfWeek(this DateTime source) {
+            var beginningOfWeek = source;
+            var dateTimeFormatInfo = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat;
+            while (beginningOfWeek.DayOfWeek != dateTimeFormatInfo.FirstDayOfWeek) {
+                beginningOfWeek = beginningOfWeek.Yesterday();
+            }
+
+            return beginningOfWeek.BeginningOfDay();
+        }        
     }
 }
