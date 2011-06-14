@@ -49,6 +49,19 @@
             }
 
             return beginningOfWeek.BeginningOfDay();
-        }        
+        }
+
+        public static DateTime NextWeek(this DateTime source) {
+            return source.AddDays(7).BeginningOfDay();
+        }
+
+        public static DateTime NextWeek(this DateTime source, DayOfWeek day) {
+            var nextWeek = source.NextWeek().BeginningOfWeek();
+            while (nextWeek.DayOfWeek != day) {
+                nextWeek = nextWeek.AddDays(1);
+            }
+
+            return nextWeek;
+        }
     }
 }

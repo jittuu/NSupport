@@ -64,11 +64,25 @@
 
         [Fact]
         public void Test_BeginningOfWeek_with_custom_FirstDayOfWeek_culture() {
+            var currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture;
+
             var culture = new System.Globalization.CultureInfo("en-US", true);
             culture.DateTimeFormat.FirstDayOfWeek = DayOfWeek.Monday;
             System.Threading.Thread.CurrentThread.CurrentCulture = culture;
 
             Assert.Equal(new DateTime(2011, 6, 13, 0, 0, 0), new DateTime(2011, 6, 14, 10, 0, 0).BeginningOfWeek());
+
+            System.Threading.Thread.CurrentThread.CurrentCulture = currentCulture; // reset to currentCulture
+        }
+
+        [Fact]
+        public void Test_NextWeek() {
+            Assert.Equal(new DateTime(2011, 6, 21, 0, 0, 0), new DateTime(2011, 6, 14, 10, 0, 0).NextWeek());
+        }
+
+        [Fact]
+        public void Test_NextWeek_with_day() {
+            Assert.Equal(new DateTime(2011, 6, 23, 0, 0, 0), new DateTime(2011, 6, 14, 10, 0, 0).NextWeek(day: DayOfWeek.Thursday));
         }
     }
 }
