@@ -19,5 +19,10 @@
             Assert.Equal(new DateTime(2010, 5, 31), new DateTime(2010, 6, 1).Yesterday()); // between months
             Assert.Equal(new DateTime(2010, 12, 31), new DateTime(2011, 1, 1).Yesterday()); // between years
         }
+
+        [Fact]
+        public void Test_NextYear() {
+            Assert.Equal(new DateTime(2011, 1, 14), new DateTime(2010, 1, 14).NextYear());
+        }
     }
 }

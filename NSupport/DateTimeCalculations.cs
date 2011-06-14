@@ -12,5 +12,9 @@
         public static DateTime Yesterday(this DateTime source) {
             return source.AddDays(-1);
         }
+
+        public static DateTime NextYear(this DateTime source) {
+            return source.AddYears(1);
+        }
     }
 }
