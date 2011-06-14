@@ -49,6 +49,10 @@
             return new DateTime(source.Year, 1, 1);
         }
 
+        public static DateTime EndOfYear(this DateTime source) {
+            return source.NextYear().BeginningOfYear().AddSeconds(-1);
+        }
+
         public static DateTime BeginningOfWeek(this DateTime source) {
             var beginningOfWeek = source;
             var dateTimeFormatInfo = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat;

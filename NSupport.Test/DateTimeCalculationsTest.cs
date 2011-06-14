@@ -68,6 +68,11 @@
         }
 
         [Fact]
+        public void Test_EndOfYear() {
+            Assert.Equal(new DateTime(2011, 12, 31, 23, 59, 59), new DateTime(2011, 6, 14, 10, 0, 0).EndOfYear());
+        }
+
+        [Fact]
         public void Test_BeginningOfWeek() {
             Assert.Equal(new DateTime(2011, 6, 12, 0, 0, 0), new DateTime(2011, 6, 14, 10, 0, 0).BeginningOfWeek());
         }
