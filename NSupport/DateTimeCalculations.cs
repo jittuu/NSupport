@@ -97,5 +97,9 @@
         public static bool IsToday(this DateTime source) {
             return source.Date == DateTime.Today;
         }
+
+        public static bool IsFuture(this DateTime source) {
+            return source > DateTime.Now;
+        }
     }
 }

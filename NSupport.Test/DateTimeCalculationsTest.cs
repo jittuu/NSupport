@@ -176,5 +176,17 @@
 
             Assert.Equal(false, new DateTime(2010, 1, 1).IsToday());
         }
+
+        [Fact]
+        public void Test_IsFuture() {
+            Assert.Equal(true, DateTime.Now.AddDays(1).IsFuture());
+            // single test should not longer than 5 seconds
+            // if test is inconsistence, need to revisit this assert
+            Assert.Equal(true, DateTime.Now.AddSeconds(5).IsFuture());
+
+            Assert.Equal(false, DateTime.Now.IsFuture());
+            Assert.Equal(false, DateTime.Today.IsFuture());
+            Assert.Equal(false, new DateTime(2010, 1, 1).IsFuture());
+        }
     }
 }
