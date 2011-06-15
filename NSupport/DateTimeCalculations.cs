@@ -114,5 +114,14 @@
                 .AddMinutes(minutes)
                 .AddSeconds(seconds);
         }
+
+        public static DateTime Ago(this DateTime source, int years = 0, int months = 0, int days = 0, int hours = 0, int minutes = 0, int seconds = 0) {
+            return source.AddYears(years * -1)
+                .AddMonths(months * -1)
+                .AddDays(days * -1)
+                .AddHours(hours * -1)
+                .AddMinutes(minutes * -1)
+                .AddSeconds(seconds * -1);
+        }
     }
 }
