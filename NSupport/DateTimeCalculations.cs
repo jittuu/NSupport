@@ -101,5 +101,9 @@
         public static bool IsFuture(this DateTime source) {
             return source > DateTime.Now;
         }
+
+        public static bool IsPast(this DateTime source) {
+            return source < DateTime.Now;
+        }
     }
 }
