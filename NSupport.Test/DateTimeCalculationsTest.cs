@@ -272,5 +272,29 @@
             Assert.Equal(new DateTime(2010, 1, 31, 23, 59, 40), new DateTime(2010, 2, 1, 0, 0, 0).Ago(seconds: 20)); // between months
             Assert.Equal(new DateTime(2010, 12, 31, 23, 59, 40), new DateTime(2011, 1, 1, 0, 0, 0).Ago(seconds: 20)); // between years
         }
+
+        [Fact]
+        public void Test_Change() {
+            // with years
+            Assert.Equal(new DateTime(2010, 1, 1), new DateTime(2011, 1, 1).Change(years: 2010));
+
+            // with months
+            Assert.Equal(new DateTime(2010, 10, 1), new DateTime(2010, 1, 1).Change(months: 10));
+
+            // with days
+            Assert.Equal(new DateTime(2010, 1, 10), new DateTime(2010, 1, 1).Change(days: 10));
+
+            // with hours
+            Assert.Equal(new DateTime(2010, 1, 1, 10, 0, 0), new DateTime(2010, 1, 1).Change(hours: 10));
+
+            // with minutes
+            Assert.Equal(new DateTime(2010, 1, 1, 0, 10, 0), new DateTime(2010, 1, 1).Change(minutes: 10));
+
+            // with seconds
+            Assert.Equal(new DateTime(2010, 1, 1, 0, 0, 10), new DateTime(2010, 1, 1).Change(seconds: 10));
+
+            // with milliseconds
+            Assert.Equal(new DateTime(2010, 1, 1, 0, 0, 0, 100), new DateTime(2010, 1, 1).Change(milliseconds: 100));
+        }
     }
 }

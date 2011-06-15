@@ -123,5 +123,17 @@
                 .AddMinutes(minutes * -1)
                 .AddSeconds(seconds * -1);
         }
+
+        public static DateTime Change(this DateTime source, int? years = null, int? months = null, int? days = null, int? hours = null, int? minutes = null, int? seconds = null, int? milliseconds = null) {
+            var y = years ?? source.Year;
+            var m = months ?? source.Month;
+            var d = days ?? source.Day;
+            var h = hours ?? source.Hour;
+            var min = minutes ?? source.Minute;
+            var s = seconds ?? source.Second;
+            var ms = milliseconds ?? source.Millisecond;
+
+            return new DateTime(y, m, d, h, min, s, ms); 
+        }
     }
 }
