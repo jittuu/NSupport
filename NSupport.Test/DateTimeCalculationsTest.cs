@@ -168,5 +168,13 @@
             Assert.Equal(new DateTime(2011, 12, 31, 23, 59, 59), new DateTime(2011, 11, 23, 10, 0, 0).EndOfQuarter());
             Assert.Equal(new DateTime(2011, 12, 31, 23, 59, 59), new DateTime(2011, 12, 31, 10, 0, 0).EndOfQuarter());
         }
+
+        [Fact]
+        public void Test_IsToday() {
+            Assert.Equal(true, DateTime.Now.IsToday());
+            Assert.Equal(true, DateTime.Today.IsToday());
+
+            Assert.Equal(false, new DateTime(2010, 1, 1).IsToday());
+        }
     }
 }

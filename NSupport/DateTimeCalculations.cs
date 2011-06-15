@@ -93,5 +93,9 @@
             var quarterMonth = new int[] { 3, 6, 9, 12 }.First(m => m >= source.Month);
             return new DateTime(source.Year, quarterMonth, 1).EndOfMonth();
         }
+
+        public static bool IsToday(this DateTime source) {
+            return source.Date == DateTime.Today;
+        }
     }
 }
