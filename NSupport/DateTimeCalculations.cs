@@ -105,5 +105,14 @@
         public static bool IsPast(this DateTime source) {
             return source < DateTime.Now;
         }
+
+        public static DateTime Advance(this DateTime source, int years = 0, int months = 0, int days = 0, int hours = 0, int minutes = 0, int seconds = 0) {
+            return source.AddYears(years)
+                .AddMonths(months)
+                .AddDays(days)
+                .AddHours(hours)
+                .AddMinutes(minutes)
+                .AddSeconds(seconds);
+        }
     }
 }
