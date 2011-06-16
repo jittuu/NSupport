@@ -42,7 +42,7 @@
         }
 
         public static TimeSpan Weeks(this int source) {
-            return new TimeSpan(source * 7, 0, 0, 0);
+            return (source * 7).Days();
         }
 
         public static TimeSpan Month(this int source) {
