@@ -42,6 +42,7 @@
     <Compile Include="DateTimeCalculations.cs" />
     <Compile Include="EnumerableAccess.cs" />
     <Compile Include="IntegerEvenOdd.cs" />
+    <Compile Include="IntegerTime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

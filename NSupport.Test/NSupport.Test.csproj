@@ -42,6 +42,7 @@
     <Compile Include="DateTimeCalculationsTest.cs" />
     <Compile Include="IEnumerableAccessTest.cs" />
     <Compile Include="IntegerEvenOddTest.cs" />
+    <Compile Include="IntegerTimeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
