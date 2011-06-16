@@ -1,7 +1,6 @@
 ﻿namespace NSupport.Test {
-    using Xunit;
-    using System.Collections.Generic;
     using System.Linq;
+    using Xunit;
 
     public class IEnumerableAccessTest {
         [Fact]

@@ -1,8 +1,5 @@
 ﻿namespace NSupport {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
 
     public static class IntegerTime {
         public static TimeSpan Second(this int source) {
