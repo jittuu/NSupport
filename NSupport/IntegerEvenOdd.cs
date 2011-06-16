@@ -12,5 +12,9 @@
         public static bool IsEven(this int source) {
             return !source.IsOdd();
         }
+
+        public static bool IsMultipleOf(this int source, int number) {
+            return source % number == 0;
+        }
     }
 }
