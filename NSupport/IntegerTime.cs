@@ -28,5 +28,13 @@
         public static TimeSpan Hours(this int source) {
             return new TimeSpan(source, 0, 0);
         }
+
+        public static TimeSpan Day(this int source) {
+            return source.Days();
+        }
+
+        public static TimeSpan Days(this int source) {
+            return new TimeSpan(source, 0, 0, 0);
+        }
     }
 }
