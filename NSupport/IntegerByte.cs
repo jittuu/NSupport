@@ -32,5 +32,13 @@
         public static long GigaBytes(this int source) {
             return source * 1024.MegaBytes();
         }
+
+        public static long TeraByte(this int source) {
+            return source.TeraBytes();
+        }
+
+        public static long TeraBytes(this int source) {
+            return source * 1024.GigaBytes();
+        }
     }
 }
