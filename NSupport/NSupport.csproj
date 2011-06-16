@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="DateTimeCalculations.cs" />
     <Compile Include="EnumerableAccess.cs" />
+    <Compile Include="IntegerByte.cs" />
     <Compile Include="IntegerEvenOdd.cs" />
     <Compile Include="IntegerTime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

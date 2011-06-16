@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="DateTimeCalculationsTest.cs" />
     <Compile Include="EnumerableAccessTest.cs" />
+    <Compile Include="IntegerByteTest.cs" />
     <Compile Include="IntegerEvenOddTest.cs" />
     <Compile Include="IntegerTimeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
