@@ -17,5 +17,17 @@
             Assert.Equal(false, 24.IsOdd());
             Assert.Equal(false, (-4).IsOdd());
         }
+
+        [Fact]
+        public void Test_IsEven() {
+            Assert.Equal(false, 1.IsEven());
+            Assert.Equal(false, 13.IsEven());
+            Assert.Equal(false, (-1).IsEven());
+
+            Assert.Equal(true, 2.IsEven());
+            Assert.Equal(true, 0.IsEven());
+            Assert.Equal(true, 24.IsEven());
+            Assert.Equal(true, (-4).IsEven());
+        }
     }
 }

@@ -8,5 +8,9 @@
         public static bool IsOdd(this int source) {
             return source % 2 != 0;
         }
+
+        public static bool IsEven(this int source) {
+            return !source.IsOdd();
+        }
     }
 }
