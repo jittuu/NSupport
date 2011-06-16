@@ -1,8 +1,5 @@
 ﻿namespace NSupport {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
 
     public static class TimeSpanDateTime {
         public static DateTime Ago(this TimeSpan source) {
@@ -10,11 +7,15 @@
         }
 
         public static DateTime FromNow(this TimeSpan source) {
-            return DateTime.Now.Add(source);
+            return source.Since(DateTime.Now);
         }
 
         public static DateTime Until(this TimeSpan source, DateTime time) {
             return time.Subtract(source);
+        }
+
+        public static DateTime Since(this TimeSpan source, DateTime time) {
+            return time.Add(source);
         }
     }
 }

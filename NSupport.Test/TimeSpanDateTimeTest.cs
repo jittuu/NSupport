@@ -1,8 +1,5 @@
 ﻿namespace NSupport.Test {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using Xunit;
 
     public class TimeSpanDateTimeTest {
@@ -28,6 +25,14 @@
             Assert.Equal(new DateTime(2011, 6, 15, 23, 59, 0), new TimeSpan(0, 1, 0).Until(new DateTime(2011, 6, 16))); // minutes
             Assert.Equal(new DateTime(2011, 6, 15, 23, 0, 0), new TimeSpan(1, 0, 0).Until(new DateTime(2011, 6, 16))); // hours
             Assert.Equal(new DateTime(2011, 6, 15, 0, 0, 0), new TimeSpan(1, 0, 0, 0).Until(new DateTime(2011, 6, 16))); // days     
+        }
+
+        [Fact]
+        public void Test_Since() {
+            Assert.Equal(new DateTime(2011, 6, 16, 0, 0, 1), new TimeSpan(0, 0, 1).Since(new DateTime(2011, 6, 16))); // seconds
+            Assert.Equal(new DateTime(2011, 6, 16, 0, 1, 0), new TimeSpan(0, 1, 0).Since(new DateTime(2011, 6, 16))); // minutes
+            Assert.Equal(new DateTime(2011, 6, 16, 1, 0, 0), new TimeSpan(1, 0, 0).Since(new DateTime(2011, 6, 16))); // hours
+            Assert.Equal(new DateTime(2011, 6, 17, 0, 0, 0), new TimeSpan(1, 0, 0, 0).Since(new DateTime(2011, 6, 16))); // days     
         }
     }
 }
