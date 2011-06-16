@@ -8,5 +8,9 @@
         public static DateTime Ago(this TimeSpan source) {
             return DateTime.Now.Subtract(source);
         }
+
+        public static DateTime FromNow(this TimeSpan source) {
+            return DateTime.Now.Add(source);
+        }
     }
 }
