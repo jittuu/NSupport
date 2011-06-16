@@ -65,5 +65,17 @@
 
             Assert.Equal(new TimeSpan(35, 0, 0, 0), 5.Weeks());
         }
+
+        [Fact]
+        public void Test_Month() {
+            Assert.Equal(new TimeSpan(30, 0, 0, 0), 1.Month());
+        }
+
+        [Fact]
+        public void Test_Months() {
+            Assert.Equal(new TimeSpan(60, 0, 0, 0), 2.Months());
+
+            Assert.Equal(new TimeSpan(150, 0, 0, 0), 5.Months());
+        }
     }
 }

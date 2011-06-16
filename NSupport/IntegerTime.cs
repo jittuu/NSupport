@@ -44,5 +44,13 @@
         public static TimeSpan Weeks(this int source) {
             return new TimeSpan(source * 7, 0, 0, 0);
         }
+
+        public static TimeSpan Month(this int source) {
+            return source.Months();
+        }
+
+        public static TimeSpan Months(this int source) {
+            return (30 * source).Days();
+        }
     }
 }
