@@ -2,7 +2,7 @@
     using System.Linq;
     using Xunit;
 
-    public class IEnumerableAccessTest {
+    public class EnumerableAccessTest {
         [Fact]
         public void Test_From_with_index_0() {
             var array = new string[] { "a", "b", "c", "d" }.From(0);
