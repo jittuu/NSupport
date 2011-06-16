@@ -31,5 +31,15 @@
         public void Test_MegaBytes() {
             Assert.Equal(10L * 1024 * 1024, 10.MegaBytes());
         }
+
+        [Fact]
+        public void Test_GigaByte() {
+            Assert.Equal(1024L * 1024 * 1024, 1.GigaByte());
+        }
+
+        [Fact]
+        public void Test_GigaBytes() {
+            Assert.Equal(10L * 1024 * 1024 * 1024, 10.GigaBytes());
+        }
     }
 }

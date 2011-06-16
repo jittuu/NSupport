@@ -24,5 +24,13 @@
         public static long MegaBytes(this int source) {
             return source * 1024.KiloBytes();
         }
+
+        public static long GigaByte(this int source) {
+            return source.GigaBytes();
+        }
+
+        public static long GigaBytes(this int source) {
+            return source * 1024.MegaBytes();
+        }
     }
 }
