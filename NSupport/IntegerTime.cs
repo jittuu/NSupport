@@ -12,5 +12,13 @@
         public static TimeSpan Seconds(this int source) {
             return new TimeSpan(0, 0, source);
         }
+
+        public static TimeSpan Minute(this int source) {
+            return source.Minutes();
+        }
+
+        public static TimeSpan Minutes(this int source) {
+            return new TimeSpan(0, source, 0);
+        }
     }
 }

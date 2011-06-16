@@ -17,5 +17,17 @@
 
             Assert.Equal(new TimeSpan(0, 0, 60), 60.Seconds());
         }
+
+        [Fact]
+        public void Test_Minute() {
+            Assert.Equal(new TimeSpan(0, 1, 0), 1.Minute());
+        }
+
+        [Fact]
+        public void Test_Minutes() {
+            Assert.Equal(new TimeSpan(0, 2, 0), 2.Minutes());
+
+            Assert.Equal(new TimeSpan(0, 60, 0), 60.Minutes());
+        }
     }
 }
