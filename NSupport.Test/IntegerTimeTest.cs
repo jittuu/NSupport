@@ -53,5 +53,17 @@
 
             Assert.Equal(new TimeSpan(60, 0, 0, 0), 60.Days());
         }
+
+        [Fact]
+        public void Test_Week() {
+            Assert.Equal(new TimeSpan(7, 0, 0, 0), 1.Week());
+        }
+
+        [Fact]
+        public void Test_Weeks() {
+            Assert.Equal(new TimeSpan(14, 0, 0, 0), 2.Weeks());
+
+            Assert.Equal(new TimeSpan(35, 0, 0, 0), 5.Weeks());
+        }
     }
 }
