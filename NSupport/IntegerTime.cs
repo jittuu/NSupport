@@ -52,5 +52,13 @@
         public static TimeSpan Months(this int source) {
             return (30 * source).Days();
         }
+
+        public static TimeSpan Year(this int source) {
+            return source.Years();
+        }
+
+        public static TimeSpan Years(this int source) {
+            return (365 * source).Days() + (6 * source).Hours();
+        }
     }
 }
