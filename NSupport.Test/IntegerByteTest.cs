@@ -14,42 +14,42 @@
 
         [Fact]
         public void Test_KiloByte() {
-            Assert.Equal(1024, 1.KiloByte());
+            Assert.Equal(1024, 1.Kilobyte());
         }
 
         [Fact]
         public void Test_KiloBytes() {
-            Assert.Equal(10 * 1024, 10.KiloBytes());
+            Assert.Equal(10 * 1024, 10.Kilobytes());
         }
 
         [Fact]
         public void Test_MegaByte() {
-            Assert.Equal(1024L * 1024, 1.MegaByte());
+            Assert.Equal(1024L * 1024, 1.Megabyte());
         }
 
         [Fact]
         public void Test_MegaBytes() {
-            Assert.Equal(10L * 1024 * 1024, 10.MegaBytes());
+            Assert.Equal(10L * 1024 * 1024, 10.Megabytes());
         }
 
         [Fact]
         public void Test_GigaByte() {
-            Assert.Equal(1024L * 1024 * 1024, 1.GigaByte());
+            Assert.Equal(1024L * 1024 * 1024, 1.Gigabyte());
         }
 
         [Fact]
         public void Test_GigaBytes() {
-            Assert.Equal(10L * 1024 * 1024 * 1024, 10.GigaBytes());
+            Assert.Equal(10L * 1024 * 1024 * 1024, 10.Gigabytes());
         }
 
         [Fact]
         public void Test_TeraByte() {
-            Assert.Equal(1024L * 1024 * 1024 * 1024, 1.TeraByte());
+            Assert.Equal(1024L * 1024 * 1024 * 1024, 1.Terabyte());
         }
 
         [Fact]
         public void Test_TeraBytes() {
-            Assert.Equal(10L * 1024 * 1024 * 1024 * 1024, 10.TeraBytes());
+            Assert.Equal(10L * 1024 * 1024 * 1024 * 1024, 10.Terabytes());
         }
     }
 }

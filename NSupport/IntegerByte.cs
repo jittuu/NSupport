@@ -9,36 +9,36 @@
             return source;
         }
 
-        public static int KiloByte(this int source) {
-            return source.KiloBytes();
+        public static int Kilobyte(this int source) {
+            return source.Kilobytes();
         }
 
-        public static int KiloBytes(this int source) {
+        public static int Kilobytes(this int source) {
             return source * 1024;
         }
 
-        public static long MegaByte(this int source) {
-            return source.MegaBytes();
+        public static long Megabyte(this int source) {
+            return source.Megabytes();
         }
 
-        public static long MegaBytes(this int source) {
-            return source * 1024.KiloBytes();
+        public static long Megabytes(this int source) {
+            return source * 1024.Kilobytes();
         }
 
-        public static long GigaByte(this int source) {
-            return source.GigaBytes();
+        public static long Gigabyte(this int source) {
+            return source.Gigabytes();
         }
 
-        public static long GigaBytes(this int source) {
-            return source * 1024.MegaBytes();
+        public static long Gigabytes(this int source) {
+            return source * 1024.Megabytes();
         }
 
-        public static long TeraByte(this int source) {
-            return source.TeraBytes();
+        public static long Terabyte(this int source) {
+            return source.Terabytes();
         }
 
-        public static long TeraBytes(this int source) {
-            return source * 1024.GigaBytes();
+        public static long Terabytes(this int source) {
+            return source * 1024.Gigabytes();
         }
     }
 }
