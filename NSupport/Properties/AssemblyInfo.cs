@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("NSupport")]
-[assembly: AssemblyDescription("Extending Base Class Library for Common Usage")]
+[assembly: AssemblyDescription("A .Net port of ActiveSupport library of Ruby on Rails. The goal is to extend Base Class Library for Common Usage with human readable syntax.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Innwa Group")]
 [assembly: AssemblyProduct("NSupport")]
