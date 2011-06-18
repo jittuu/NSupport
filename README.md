@@ -17,7 +17,7 @@ You can download the latest release dll from [**Here**](https://github.com/downl
 **NSupport** extends the BCL by adding extension methods, so you need to add the using reference to your code.
 
 ```c#
-    using NSupport    
+    using NSupport;
 ```
 
 NSupport extends [DateTime](http://msdn.microsoft.com/en-us/library/system.datetime.aspx) to allow you to write as below and more:
