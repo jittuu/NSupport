@@ -2,6 +2,9 @@
     using System;
     using System.Linq;
 
+    /// <summary>
+    /// Provides extension methods for <see cref="DateTime"/> for calcualtions.
+    /// </summary>
     public static class DateTimeCalculations {
         /// <summary>
         /// Returns a new <see cref="System.DateTime" /> that adds one day to the value of this instance.
@@ -122,7 +125,7 @@
 
         /// <summary>
         /// Returns the first day of the current week with the time value set to 12:00:00 midnight (00:00:00).
-        /// This method is culture-aware method which calculates based on <see cref="System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek" />.
+        /// This method is culture-aware method which calculates based on <see cref="System.Globalization.DateTimeFormatInfo.FirstDayOfWeek" />.
         /// </summary>
         /// <param name="source"><see cref="System.DateTime" /> instance.</param>
         /// <returns>Returns the first day of the current week with the time value set to 12:00:00 midnight (00:00:00).</returns>
@@ -138,7 +141,7 @@
 
         /// <summary>
         /// Returns the last day of the current week with the time value set to (23:59:59).
-        /// This method is culture-aware method which calculates based on <see cref="System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek" />.
+        /// This method is culture-aware method which calculates based on <see cref="System.Globalization.DateTimeFormatInfo.FirstDayOfWeek" />.
         /// </summary>
         /// <param name="source"><see cref="System.DateTime" /> instance.</param>
         /// <returns>Returns the last day of the current week with the time value set to (23:59:59).</returns>
@@ -157,10 +160,10 @@
 
         /// <summary>
         /// Returns the given <paramref name="day" /> of next week with the time value set to 12:00:00 midnight (00:00:00).
-        /// This method is culture-aware method which calculates based on <see cref="System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek" />.
+        /// This method is culture-aware method which calculates based on <see cref="System.Globalization.DateTimeFormatInfo.FirstDayOfWeek" />.
         /// </summary>
         /// <param name="source"><see cref="System.DateTime" /> instance.</param>
-        /// <param name="day">The <see cref="System.DayofWeek" /> of next week.</param>
+        /// <param name="day">The <see cref="System.DayOfWeek" /> of next week.</param>
         /// <returns>Returns the given <paramref name="day" /> of next week with the time value set to 12:00:00 midnight (00:00:00).</returns>
         public static DateTime NextWeek(this DateTime source, DayOfWeek day) {
             var nextWeek = source.NextWeek().BeginningOfWeek();

@@ -1,5 +1,7 @@
 ﻿namespace NSupport {
-
+    /// <summary>
+    /// Provides extension methods for <see cref="int"/> for byte/kilobyte/etc conversion.
+    /// </summary>
     public static class IntegerByte {
         /// <summary>
         /// A byte.

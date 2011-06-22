@@ -1,6 +1,9 @@
 ﻿namespace NSupport {
     using System;
 
+    /// <summary>
+    /// Provides extension methods for <see cref="TimeSpan"/> for <see cref="DateTime"/> conversion.
+    /// </summary>
     public static class TimeSpanDateTime {
         /// <summary>
         /// Returns a <see cref="DateTime"/> which subtract current <see cref="TimeSpan"/> ago from now.

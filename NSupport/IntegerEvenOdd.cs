@@ -1,5 +1,7 @@
 ﻿namespace NSupport {
-
+    /// <summary>
+    /// Provides extension methods for <see cref="int"/> for even/odds conversion.
+    /// </summary>
     public static class IntegerEvenOdd {
         /// <summary>
         /// Returns true if the number is odd, otherwise false.

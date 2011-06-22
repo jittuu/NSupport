@@ -1,6 +1,9 @@
 ﻿namespace NSupport {
     using System;
 
+    /// <summary>
+    /// Provides extension methods for <see cref="int"/> for <see cref="TimeSpan"/> conversion.
+    /// </summary>
     public static class IntegerTime {
         /// <summary>
         /// Returns a <see cref="TimeSpan"/> in second.

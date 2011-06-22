@@ -2,6 +2,9 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>
+    /// Provides extension methods for <see cref="IEnumerable{T}"/> for from/to conversion.
+    /// </summary>
     public static class EnumerableAccess {
         /// <summary>
         /// Returns the tail of the element sequence from position.
