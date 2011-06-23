@@ -10,7 +10,7 @@ A .Net port of ActiveSupport library of Ruby on Rails. The goal is to extend Bas
 More information about nuget package at http://www.nuget.org/List/Packages/NSupport.
 
 ### DLL download
-You can download the latest release dll from [**Here**](https://github.com/downloads/soemoe/NSupport/NSupport%20v1.0.zip) and add reference to your project.
+You can download the latest release dll from [**Here**](https://github.com/downloads/soemoe/NSupport/NSupport%20v1.1.zip) and add reference to your project.
 
 # Usage
 
