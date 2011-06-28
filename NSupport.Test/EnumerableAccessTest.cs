@@ -15,7 +15,7 @@
         }
 
         [Fact]
-        public void Test_From_in_range_index() {
+        public void Test_From_in_range_index() {            
             var array = new string[] { "a", "b", "c", "d" }.From(2);
 
             Assert.Equal(2, array.Count());

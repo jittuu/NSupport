@@ -3,4 +3,7 @@
 *.suo
 *.user
 *.docstates
+*.nupkg
 packages/
+[Bb]uild/
+[Nn]u[Pp]ack/
