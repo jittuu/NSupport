@@ -1,6 +1,6 @@
 ﻿namespace NSupport.Test {
-    using Xunit;
     using System;
+    using Xunit;
 
     public class IntegerAccessTest {
         [Fact]

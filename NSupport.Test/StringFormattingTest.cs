@@ -1,8 +1,7 @@
 ﻿namespace NSupport.Test {
     using System;
-    using Xunit;
-    using System.Threading;
     using System.Globalization;
+    using Xunit;
     
     public class StringFormattingTest {
         [Fact]
