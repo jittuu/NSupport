@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DateTimeCalculationsTest.cs" />
+    <Compile Include="DateTimeOffsetCalculationsTest.cs" />
     <Compile Include="EnumerableAccessTest.cs" />
     <Compile Include="IntegerAccessTest.cs" />
     <Compile Include="IntegerByteTest.cs" />
