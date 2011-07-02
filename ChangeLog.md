@@ -1,5 +1,5 @@
 ﻿Version 1.2
--------------------
+============
 
 - added *DateTimeOffset* calculations.
 - added *String* formatting with _FormatWith_.
