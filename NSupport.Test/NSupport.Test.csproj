@@ -69,11 +69,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <UsingTask
-    AssemblyFile="xunit.runner.msbuild.dll"
-    TaskName="Xunit.Runner.MSBuild.xunit"/>
-
-  <Target Name="Test">
-    <xunit Assembly="NSupport.Test\bin\Release\NSupport.Test.dll" />
-  </Target>
 </Project>
