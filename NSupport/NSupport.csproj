@@ -49,6 +49,7 @@
     <Compile Include="IntegerEvenOdd.cs" />
     <Compile Include="IntegerTime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringConversion.cs" />
     <Compile Include="StringFormatting.cs">
       <SubType>Code</SubType>
     </Compile>
