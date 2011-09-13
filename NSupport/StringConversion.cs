@@ -29,7 +29,7 @@
         /// <returns>Returns true if the <see cref="String"/> can be convert to number with provided <see cref=" NumberStyles"/>, otherwise false.</returns>
         public static bool IsNumber(this string source, NumberStyles style) {
             decimal parseValue;
-            return decimal.TryParse(source, style, CultureInfo.CurrentCulture, out parseValue);
+            return decimal.TryParse(source, style, NumberFormatInfo.CurrentInfo, out parseValue);
         }
 
         /// <summary>
@@ -41,7 +41,7 @@
         /// <exception cref="FormatException">Throws when <paramref name="source"/> is not correct format.</exception>
         /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Int32.MinValue"/> or greater than <see cref="Int32.MaxValue"/>.</exception>
         public static int ToInt32(this string source) {
-            return int.Parse(source);
+            return source.ToInt32(NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite | NumberStyles.AllowLeadingSign);
         }
 
         /// <summary>
@@ -55,7 +55,7 @@
         /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Int32.MinValue"/> or greater than <see cref="Int32.MaxValue"/>.</exception>
         /// <exception cref="ArgumentException">Throws when <paramref name="style"/> is not valid <see cref="NumberStyles"/></exception>
         public static int ToInt32(this string source, NumberStyles style) {
-            return int.Parse(source, style);
+            return int.Parse(source, style, NumberFormatInfo.CurrentInfo);
         }
 
         /// <summary>
@@ -64,8 +64,7 @@
         /// <param name="source">A <see cref="string"/> instance.</param>
         /// <returns>An instance of <see cref="Int32"/> if successfully parsed, otherwise null (Nothing in Visual Basic).</returns>
         public static int? AsInt32(this string source) {
-            var result = 0;
-            return int.TryParse(source, out result) ? (int?)result : null;
+            return source.AsInt32(NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite | NumberStyles.AllowLeadingSign);
         }
 
         /// <summary>
@@ -76,7 +75,7 @@
         /// <returns>An instance of <see cref="Int32"/> if successfully parsed, otherwise null (Nothing in Visual Basic).</returns>
         public static int? AsInt32(this string source, NumberStyles style) {
             var result = 0;
-            return int.TryParse(source, style, CultureInfo.CurrentCulture, out result) ? (int?)result : null;
+            return int.TryParse(source, style, NumberFormatInfo.CurrentInfo, out result) ? (int?)result : null;
         }
     }
 }
