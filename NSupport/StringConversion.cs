@@ -57,5 +57,26 @@
         public static int ToInteger(this string source, NumberStyles style) {
             return int.Parse(source, style);
         }
+
+        /// <summary>
+        /// Return converted <see cref="Int32"/> if successfully parsed, otherwise null (Nothing in Visual Basic).
+        /// </summary>
+        /// <param name="source">A <see cref="string"/> instance.</param>
+        /// <returns>An instance of <see cref="Int32"/> if successfully parsed, otherwise null (Nothing in Visual Basic).</returns>
+        public static int? AsInteger(this string source) {
+            var result = 0;
+            return int.TryParse(source, out result) ? (int?)result : null;
+        }
+
+        /// <summary>
+        /// Return converted <see cref="Int32"/> if successfully parsed, otherwise null (Nothing in Visual Basic).
+        /// </summary>
+        /// <param name="source">A <see cref="string"/> instance.</param>
+        /// <param name="style">A <see cref="NumberStyles" /> to parse against <paramref name="source"/>.</param>
+        /// <returns>An instance of <see cref="Int32"/> if successfully parsed, otherwise null (Nothing in Visual Basic).</returns>
+        public static int? AsInteger(this string source, NumberStyles style) {
+            var result = 0;
+            return int.TryParse(source, style, CultureInfo.CurrentCulture, out result) ? (int?)result : null;
+        }
     }
 }
