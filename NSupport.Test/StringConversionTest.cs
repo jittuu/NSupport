@@ -66,7 +66,7 @@
             };
 
             foreach (var kv in validValues) {
-                Assert.Equal(kv.Value, kv.Key.ToInteger());
+                Assert.Equal(kv.Value, kv.Key.ToInt32());
             }
         }
 
@@ -78,7 +78,7 @@
 
             foreach (var value in invalidValues) {
                 Assert.Throws<FormatException>(() => {
-                    value.ToInteger();
+                    value.ToInt32();
                 });
             }
         }
@@ -95,7 +95,7 @@
             };
 
             foreach (var value in validValues) {
-                Assert.Equal(value.Item3, value.Item1.ToInteger(value.Item2));
+                Assert.Equal(value.Item3, value.Item1.ToInt32(value.Item2));
             }
         }
 
@@ -109,7 +109,7 @@
 
             foreach (var kv in invalidValues) {
                 Assert.Throws<FormatException>(() => {
-                    kv.Key.ToInteger(kv.Value);
+                    kv.Key.ToInt32(kv.Value);
                 });
             }
         }
@@ -126,7 +126,7 @@
             };
 
             foreach (var kv in validValues) {
-                Assert.Equal(kv.Value, kv.Key.AsInteger());
+                Assert.Equal(kv.Value, kv.Key.AsInt32());
             }
         }
 
@@ -137,7 +137,7 @@
             };
 
             foreach (var value in invalidValues) {
-                Assert.Null(value.AsInteger());
+                Assert.Null(value.AsInt32());
             }
         }
 
@@ -153,7 +153,7 @@
             };
 
             foreach (var value in validValues) {
-                Assert.Equal(value.Item3, value.Item1.AsInteger(value.Item2));
+                Assert.Equal(value.Item3, value.Item1.AsInt32(value.Item2));
             }
         }
 
@@ -166,7 +166,7 @@
             };
 
             foreach (var kv in invalidValues) {
-                Assert.Null(kv.Key.AsInteger(kv.Value));
+                Assert.Null(kv.Key.AsInt32(kv.Value));
             }
         }
     }

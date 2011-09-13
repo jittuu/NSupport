@@ -40,7 +40,7 @@
         /// <exception cref="ArgumentNullException">Throws when <paramref name="source"/> is null.</exception>
         /// <exception cref="FormatException">Throws when <paramref name="source"/> is not correct format.</exception>
         /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Int32.MinValue"/> or greater than <see cref="Int32.MaxValue"/>.</exception>
-        public static int ToInteger(this string source) {
+        public static int ToInt32(this string source) {
             return int.Parse(source);
         }
 
@@ -54,7 +54,7 @@
         /// <exception cref="FormatException">Throws when <paramref name="source"/> is not correct format.</exception>
         /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Int32.MinValue"/> or greater than <see cref="Int32.MaxValue"/>.</exception>
         /// <exception cref="ArgumentException">Throws when <paramref name="style"/> is not valid <see cref="NumberStyles"/></exception>
-        public static int ToInteger(this string source, NumberStyles style) {
+        public static int ToInt32(this string source, NumberStyles style) {
             return int.Parse(source, style);
         }
 
@@ -63,7 +63,7 @@
         /// </summary>
         /// <param name="source">A <see cref="string"/> instance.</param>
         /// <returns>An instance of <see cref="Int32"/> if successfully parsed, otherwise null (Nothing in Visual Basic).</returns>
-        public static int? AsInteger(this string source) {
+        public static int? AsInt32(this string source) {
             var result = 0;
             return int.TryParse(source, out result) ? (int?)result : null;
         }
@@ -74,7 +74,7 @@
         /// <param name="source">A <see cref="string"/> instance.</param>
         /// <param name="style">A <see cref="NumberStyles" /> to parse against <paramref name="source"/>.</param>
         /// <returns>An instance of <see cref="Int32"/> if successfully parsed, otherwise null (Nothing in Visual Basic).</returns>
-        public static int? AsInteger(this string source, NumberStyles style) {
+        public static int? AsInt32(this string source, NumberStyles style) {
             var result = 0;
             return int.TryParse(source, style, CultureInfo.CurrentCulture, out result) ? (int?)result : null;
         }
