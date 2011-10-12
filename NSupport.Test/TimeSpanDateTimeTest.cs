@@ -5,18 +5,18 @@
     public class TimeSpanDateTimeTest {
         [Fact]
         public void Test_Ago() {            
-            Assert.Equal(DateTime.Now.AddSeconds(-1), new TimeSpan(0, 0, 1).Ago()); // seconds
-            Assert.Equal(DateTime.Now.AddMinutes(-1), new TimeSpan(0, 1, 0).Ago()); // minutes
-            Assert.Equal(DateTime.Now.AddHours(-1), new TimeSpan(1, 0, 0).Ago()); // hours
-            Assert.Equal(DateTime.Now.AddDays(-1), new TimeSpan(1, 0, 0, 0).Ago()); // days            
+            AssertEqualDateTimePrecisionInSeconds(DateTime.Now.AddSeconds(-1), new TimeSpan(0, 0, 1).Ago()); // seconds
+            AssertEqualDateTimePrecisionInSeconds(DateTime.Now.AddMinutes(-1), new TimeSpan(0, 1, 0).Ago()); // minutes
+            AssertEqualDateTimePrecisionInSeconds(DateTime.Now.AddHours(-1), new TimeSpan(1, 0, 0).Ago()); // hours
+            AssertEqualDateTimePrecisionInSeconds(DateTime.Now.AddDays(-1), new TimeSpan(1, 0, 0, 0).Ago()); // days            
         }
 
         [Fact]
         public void Test_FromNow() {
-            Assert.Equal(DateTime.Now.AddSeconds(1), new TimeSpan(0, 0, 1).FromNow()); // seconds
-            Assert.Equal(DateTime.Now.AddMinutes(1), new TimeSpan(0, 1, 0).FromNow()); // minutes
-            Assert.Equal(DateTime.Now.AddHours(1), new TimeSpan(1, 0, 0).FromNow()); // hours
-            Assert.Equal(DateTime.Now.AddDays(1), new TimeSpan(1, 0, 0, 0).FromNow()); // days            
+            AssertEqualDateTimePrecisionInSeconds(DateTime.Now.AddSeconds(1), new TimeSpan(0, 0, 1).FromNow()); // seconds
+            AssertEqualDateTimePrecisionInSeconds(DateTime.Now.AddMinutes(1), new TimeSpan(0, 1, 0).FromNow()); // minutes
+            AssertEqualDateTimePrecisionInSeconds(DateTime.Now.AddHours(1), new TimeSpan(1, 0, 0).FromNow()); // hours
+            AssertEqualDateTimePrecisionInSeconds(DateTime.Now.AddDays(1), new TimeSpan(1, 0, 0, 0).FromNow()); // days            
         }
 
         [Fact]
@@ -33,6 +33,15 @@
             Assert.Equal(new DateTime(2011, 6, 16, 0, 1, 0), new TimeSpan(0, 1, 0).Since(new DateTime(2011, 6, 16))); // minutes
             Assert.Equal(new DateTime(2011, 6, 16, 1, 0, 0), new TimeSpan(1, 0, 0).Since(new DateTime(2011, 6, 16))); // hours
             Assert.Equal(new DateTime(2011, 6, 17, 0, 0, 0), new TimeSpan(1, 0, 0, 0).Since(new DateTime(2011, 6, 16))); // days     
+        }
+
+        public void AssertEqualDateTimePrecisionInSeconds(DateTime expected, DateTime actual) {
+            Assert.Equal(expected.Year, actual.Year);
+            Assert.Equal(expected.Month, actual.Month);
+            Assert.Equal(expected.Day, actual.Day);
+            Assert.Equal(expected.Hour, actual.Hour);
+            Assert.Equal(expected.Minute, actual.Minute);
+            Assert.Equal(expected.Second, actual.Second);
         }
     }
 }
