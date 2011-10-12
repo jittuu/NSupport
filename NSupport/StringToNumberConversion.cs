@@ -198,5 +198,26 @@
         public static decimal ToDecimal(this string source, NumberStyles style) {
             return decimal.Parse(source, style, NumberFormatInfo.CurrentInfo);
         }
+
+        /// <summary>
+        /// Return converted <see cref="Decimal"/> if successfully parsed, otherwise null (Nothing in Visual Basic).
+        /// </summary>
+        /// <param name="source">A <see cref="string"/> instance.</param>
+        /// <returns>An instance of <see cref="Decimal"/> if successfully parsed, otherwise null (Nothing in Visual Basic).</returns>
+        public static decimal? AsDecimal(this string source) {
+            var result = 0.0m;
+            return decimal.TryParse(source, out result) ? (decimal?)result : null;
+        }
+
+        /// <summary>
+        /// Return converted <see cref="Decimal"/> if successfully parsed, otherwise null (Nothing in Visual Basic).
+        /// </summary>
+        /// <param name="source">A <see cref="string"/> instance.</param>
+        /// <param name="style">A <see cref="NumberStyles" /> to parse against <paramref name="source"/>.</param>
+        /// <returns>An instance of <see cref="Decimal"/> if successfully parsed, otherwise null (Nothing in Visual Basic).</returns>
+        public static decimal? AsDecimal(this string source, NumberStyles style) {
+            var result = 0.0m;
+            return decimal.TryParse(source, style, NumberFormatInfo.CurrentInfo, out result) ? (decimal?)result : null;
+        }
     }
 }
