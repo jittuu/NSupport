@@ -123,5 +123,31 @@
             var result = 0L;
             return long.TryParse(source, style, NumberFormatInfo.CurrentInfo, out result) ? (long?)result : null;
         }
+
+        /// <summary>
+        /// Return converted <see cref="Double"/>.
+        /// </summary>
+        /// <param name="source">A <see cref="string"/> instance.</param>        
+        /// <returns>A converted <see cref="Double"/>.</returns>
+        /// <exception cref="ArgumentNullException">Throws when <paramref name="source"/> is null.</exception>
+        /// <exception cref="FormatException">Throws when <paramref name="source"/> is not correct format.</exception>
+        /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Int64.MinValue"/> or greater than <see cref="Int32.MaxValue"/>.</exception>
+        public static double ToDouble(this string source) {
+            return double.Parse(source);
+        }
+
+        /// <summary>
+        /// Return converted <see cref="Double"/>.
+        /// </summary>
+        /// <param name="source">A <see cref="string"/> instance.</param>
+        /// <param name="style">A <see cref="NumberStyles" /> to parse against <paramref name="source"/>.</param>
+        /// <returns>Return converted <see cref="Double"/>.</returns>
+        /// <exception cref="ArgumentNullException">Throws when <paramref name="source"/> is null.</exception>
+        /// <exception cref="FormatException">Throws when <paramref name="source"/> is not correct format.</exception>
+        /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Int64.MinValue"/> or greater than <see cref="Int32.MaxValue"/>.</exception>
+        /// <exception cref="ArgumentException">Throws when <paramref name="style"/> is not valid <see cref="NumberStyles"/></exception>
+        public static double ToDouble(this string source, NumberStyles style) {
+            return double.Parse(source, style, NumberFormatInfo.CurrentInfo);
+        }
     }
 }

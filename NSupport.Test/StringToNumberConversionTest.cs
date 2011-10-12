@@ -286,5 +286,65 @@
                 Assert.Null(kv.Key.AsInt64(kv.Value));
             }
         }
+
+        [Fact]
+        public void Test_ToDouble_for_valid_strings() {
+            var validValues = new Dictionary<string, double>() { 
+                { "1234.25", 1234.25 }, 
+                {"  1234.25", 1234.25 }, 
+                {"1234.25   ", 1234.25 }, 
+                {"   1234.25  ", 1234.25},
+                {"+1234.25", 1234.25}, 
+                {"  -1234.25  ", -1234.25}
+            };
+
+            foreach (var kv in validValues) {
+                Assert.Equal(kv.Value, kv.Key.ToDouble());
+            }
+        }
+
+        [Fact]
+        public void Test_ToDouble_for_invalid_strings() {
+            var invalidValues = new string[] { 
+                "1,..,000", "  1234..", "1234.32.00   ", "   $1234  "
+            };
+
+            foreach (var value in invalidValues) {
+                Assert.Throws<FormatException>(() => {
+                    value.ToDouble();
+                });
+            }
+        }
+
+        [Fact]
+        public void Test_ToDouble_with_NumberStyles_for_valid_strings() {
+            var validValues = new Tuple<string, NumberStyles, double>[]{ 
+                new Tuple<string, NumberStyles, double>("123.25", NumberStyles.AllowDecimalPoint, 
+                    123.25),
+                new Tuple<string, NumberStyles, double>("$123", NumberStyles.AllowCurrencySymbol, 
+                    123),
+                new Tuple<string, NumberStyles, double>("$123.25", NumberStyles.AllowDecimalPoint | NumberStyles.AllowCurrencySymbol, 
+                    123.25),
+            };
+
+            foreach (var value in validValues) {
+                Assert.Equal(value.Item3, value.Item1.ToDouble(value.Item2));
+            }
+        }
+
+        [Fact]
+        public void Test_ToDouble_with_NumberStyles_for_invalid_strings() {
+            var invalidValues = new Dictionary<string, NumberStyles> { 
+                { "$123", NumberStyles.AllowDecimalPoint },
+                { "123.25", NumberStyles.AllowCurrencySymbol },
+                { "+123.25", NumberStyles.AllowDecimalPoint | NumberStyles.AllowCurrencySymbol }
+            };
+
+            foreach (var kv in invalidValues) {
+                Assert.Throws<FormatException>(() => {
+                    kv.Key.ToDouble(kv.Value);
+                });
+            }
+        }
     }
 }
