@@ -103,5 +103,25 @@
         public static long ToInt64(this string source, NumberStyles style) {
             return long.Parse(source, style, NumberFormatInfo.CurrentInfo);
         }
+
+        /// <summary>
+        /// Return converted <see cref="Int64"/> if successfully parsed, otherwise null (Nothing in Visual Basic).
+        /// </summary>
+        /// <param name="source">A <see cref="string"/> instance.</param>
+        /// <returns>An instance of <see cref="Int64"/> if successfully parsed, otherwise null (Nothing in Visual Basic).</returns>
+        public static long? AsInt64(this string source) {
+            return source.AsInt64(NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite | NumberStyles.AllowLeadingSign);
+        }
+
+        /// <summary>
+        /// Return converted <see cref="Int64"/> if successfully parsed, otherwise null (Nothing in Visual Basic).
+        /// </summary>
+        /// <param name="source">A <see cref="string"/> instance.</param>
+        /// <param name="style">A <see cref="NumberStyles" /> to parse against <paramref name="source"/>.</param>
+        /// <returns>An instance of <see cref="Int64"/> if successfully parsed, otherwise null (Nothing in Visual Basic).</returns>
+        public static long? AsInt64(this string source, NumberStyles style) {
+            var result = 0L;
+            return long.TryParse(source, style, NumberFormatInfo.CurrentInfo, out result) ? (long?)result : null;
+        }
     }
 }

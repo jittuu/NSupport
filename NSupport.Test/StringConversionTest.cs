@@ -230,5 +230,61 @@
                 });
             }
         }
+
+        [Fact]
+        public void Test_AsInt64_for_valid_strings() {
+            var validValues = new Dictionary<string, long>() { 
+                { "1234", 1234 }, 
+                {"  1234", 1234 }, 
+                {"1234   ", 1234 }, 
+                {"   1234  ", 1234},
+                {"+1234", 1234}, 
+                {"  -9223372036854  ", -9223372036854}
+            };
+
+            foreach (var kv in validValues) {
+                Assert.Equal(kv.Value, kv.Key.AsInt64());
+            }
+        }
+
+        [Fact]
+        public void Test_AsInt64_for_invalid_strings() {
+            var invalidValues = new string[] { 
+                "1,000", "  1234.", "1234.32   ", "   $9223372036854  "
+            };
+
+            foreach (var value in invalidValues) {
+                Assert.Null(value.AsInt64());
+            }
+        }
+
+        [Fact]
+        public void Test_AsInt64_with_NumberStyles_for_valid_strings() {
+            var validValues = new Tuple<string, NumberStyles, long>[]{ 
+                new Tuple<string, NumberStyles, long>("123.0", NumberStyles.AllowDecimalPoint, 
+                    123),
+                new Tuple<string, NumberStyles, long>("$123", NumberStyles.AllowCurrencySymbol, 
+                    123),
+                new Tuple<string, NumberStyles, long>("$9223372036854.0", NumberStyles.AllowDecimalPoint | NumberStyles.AllowCurrencySymbol, 
+                    9223372036854),
+            };
+
+            foreach (var value in validValues) {
+                Assert.Equal(value.Item3, value.Item1.AsInt64(value.Item2));
+            }
+        }
+
+        [Fact]
+        public void Test_AsInt64_with_NumberStyles_for_invalid_strings() {
+            var invalidValues = new Dictionary<string, NumberStyles> { 
+                { "$123.0", NumberStyles.AllowDecimalPoint },
+                { "123.0", NumberStyles.AllowCurrencySymbol },
+                { "+9223372036854.0", NumberStyles.AllowDecimalPoint | NumberStyles.AllowCurrencySymbol }
+            };
+
+            foreach (var kv in invalidValues) {
+                Assert.Null(kv.Key.AsInt64(kv.Value));
+            }
+        }
     }
 }
