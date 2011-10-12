@@ -59,7 +59,7 @@
     <Compile Include="StringFormattingTest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TimeSpanDateTimeTest.cs" />
+    <Compile Include="TimeSpanDateTimeOffsetTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NSupport\NSupport.csproj">

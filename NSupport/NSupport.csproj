@@ -55,7 +55,7 @@
     <Compile Include="StringFormatting.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TimeSpanDateTime.cs" />
+    <Compile Include="TimeSpanDateTimeOffset.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
