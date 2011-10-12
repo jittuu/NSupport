@@ -4,7 +4,7 @@
     using System.Globalization;
     using Xunit;
 
-    public class StringConversionTest {
+    public class StringToNumberConversionTest {
         [Fact]
         public void Test_IsNumber_for_valid_strings() {
             var validValues = new string[] { 

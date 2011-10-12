@@ -5,7 +5,7 @@
     /// <summary>
     /// Provides extension methods for <see cref="String"/> for conversion and checking to other types.
     /// </summary>
-    public static class StringConversion {
+    public static class StringToNumberConversion {
 
         /// <summary>
         /// Return whether the provided <see cref="String"/> is number.
