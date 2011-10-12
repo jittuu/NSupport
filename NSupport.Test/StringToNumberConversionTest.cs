@@ -370,7 +370,7 @@
             };
 
             foreach (var value in invalidValues) {
-                Assert.Null(value.AsInt64());
+                Assert.Null(value.AsDouble());
             }
         }
 
