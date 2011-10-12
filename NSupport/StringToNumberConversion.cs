@@ -149,5 +149,26 @@
         public static double ToDouble(this string source, NumberStyles style) {
             return double.Parse(source, style, NumberFormatInfo.CurrentInfo);
         }
+
+        /// <summary>
+        /// Return converted <see cref="Double"/> if successfully parsed, otherwise null (Nothing in Visual Basic).
+        /// </summary>
+        /// <param name="source">A <see cref="string"/> instance.</param>
+        /// <returns>An instance of <see cref="Double"/> if successfully parsed, otherwise null (Nothing in Visual Basic).</returns>
+        public static double? AsDouble(this string source) {
+            var result = 0.0;
+            return double.TryParse(source, out result) ? (double?)result : null;
+        }
+
+        /// <summary>
+        /// Return converted <see cref="Double"/> if successfully parsed, otherwise null (Nothing in Visual Basic).
+        /// </summary>
+        /// <param name="source">A <see cref="string"/> instance.</param>
+        /// <param name="style">A <see cref="NumberStyles" /> to parse against <paramref name="source"/>.</param>
+        /// <returns>An instance of <see cref="Double"/> if successfully parsed, otherwise null (Nothing in Visual Basic).</returns>
+        public static double? AsDouble(this string source, NumberStyles style) {
+            var result = 0.0;
+            return double.TryParse(source, style, NumberFormatInfo.CurrentInfo, out result) ? (double?)result : null;
+        }
     }
 }
