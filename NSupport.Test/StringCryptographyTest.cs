@@ -47,5 +47,20 @@
 
             Assert.NotEqual(hashedAnotherPassword, hashedPassword);
         }
+
+        [Fact]
+        public void Test_Encrypt_Decrypt() {
+            var text = "This is my text!.";
+            var sharedSecret = "sharedSecret";
+
+            var encryptedText = text.Encrypt(sharedSecret);
+
+            Assert.DoesNotContain(text, encryptedText);
+            Assert.DoesNotContain(sharedSecret, encryptedText);
+
+            var decryptedText = encryptedText.Decrypt(sharedSecret);
+
+            Assert.Equal(text, decryptedText);
+        }
     }
 }
