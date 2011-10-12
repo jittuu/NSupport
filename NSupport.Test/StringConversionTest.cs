@@ -55,7 +55,7 @@
         }
 
         [Fact]
-        public void Test_ToInteger_for_valid_strings() {
+        public void Test_ToInt32_for_valid_strings() {
             var validValues = new Dictionary<string, int>() { 
                 { "1234", 1234 }, 
                 {"  1234", 1234 }, 
@@ -71,7 +71,7 @@
         }
 
         [Fact]
-        public void Test_ToInteger_for_invalid_strings() {            
+        public void Test_ToInt32_for_invalid_strings() {            
             var invalidValues = new string[] { 
                 "1,000", "  1234.", "1234.32   ", "   $1234  "
             };
@@ -84,7 +84,7 @@
         }
 
         [Fact]
-        public void Test_ToInteger_with_NumberStyles_for_valid_strings() {
+        public void Test_ToInt32_with_NumberStyles_for_valid_strings() {
             var validValues = new Tuple<string, NumberStyles, int>[]{ 
                 new Tuple<string, NumberStyles, int>("123.0", NumberStyles.AllowDecimalPoint, 
                     123),
@@ -100,7 +100,7 @@
         }
 
         [Fact]
-        public void Test_ToInteger_with_NumberStyles_for_invalid_strings() {
+        public void Test_ToInt32_with_NumberStyles_for_invalid_strings() {
             var invalidValues = new Dictionary<string, NumberStyles> { 
                 { "$123.0", NumberStyles.AllowDecimalPoint },
                 { "123.0", NumberStyles.AllowCurrencySymbol },
@@ -115,7 +115,7 @@
         }
 
         [Fact]
-        public void Test_AsInteger_for_valid_strings() {
+        public void Test_AsInt32_for_valid_strings() {
             var validValues = new Dictionary<string, int>() { 
                 { "1234", 1234 }, 
                 {"  1234", 1234 }, 
@@ -131,7 +131,7 @@
         }
 
         [Fact]
-        public void Test_AsInteger_for_invalid_strings() {
+        public void Test_AsInt32_for_invalid_strings() {
             var invalidValues = new string[] { 
                 "1,000", "  1234.", "1234.32   ", "   $1234  "
             };
@@ -142,7 +142,7 @@
         }
 
         [Fact]
-        public void Test_AsInteger_with_NumberStyles_for_valid_strings() {
+        public void Test_AsInt32_with_NumberStyles_for_valid_strings() {
             var validValues = new Tuple<string, NumberStyles, int>[]{ 
                 new Tuple<string, NumberStyles, int>("123.0", NumberStyles.AllowDecimalPoint, 
                     123),
@@ -158,7 +158,7 @@
         }
 
         [Fact]
-        public void Test_AsInteger_with_NumberStyles_for_invalid_strings() {
+        public void Test_AsInt32_with_NumberStyles_for_invalid_strings() {
             var invalidValues = new Dictionary<string, NumberStyles> { 
                 { "$123.0", NumberStyles.AllowDecimalPoint },
                 { "123.0", NumberStyles.AllowCurrencySymbol },
