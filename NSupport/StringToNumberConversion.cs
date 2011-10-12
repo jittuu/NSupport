@@ -86,7 +86,7 @@
         /// <returns>A converted <see cref="Int64"/>.</returns>
         /// <exception cref="ArgumentNullException">Throws when <paramref name="source"/> is null.</exception>
         /// <exception cref="FormatException">Throws when <paramref name="source"/> is not correct format.</exception>
-        /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Int64.MinValue"/> or greater than <see cref="Int32.MaxValue"/>.</exception>
+        /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Int64.MinValue"/> or greater than <see cref="Int64.MaxValue"/>.</exception>
         public static long ToInt64(this string source) {
             return long.Parse(source);
         }
@@ -99,7 +99,7 @@
         /// <returns>Return converted <see cref="Int64"/>.</returns>
         /// <exception cref="ArgumentNullException">Throws when <paramref name="source"/> is null.</exception>
         /// <exception cref="FormatException">Throws when <paramref name="source"/> is not correct format.</exception>
-        /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Int64.MinValue"/> or greater than <see cref="Int32.MaxValue"/>.</exception>
+        /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Int64.MinValue"/> or greater than <see cref="Int64.MaxValue"/>.</exception>
         /// <exception cref="ArgumentException">Throws when <paramref name="style"/> is not valid <see cref="NumberStyles"/></exception>
         public static long ToInt64(this string source, NumberStyles style) {
             return long.Parse(source, style, NumberFormatInfo.CurrentInfo);
@@ -133,7 +133,7 @@
         /// <returns>A converted <see cref="Double"/>.</returns>
         /// <exception cref="ArgumentNullException">Throws when <paramref name="source"/> is null.</exception>
         /// <exception cref="FormatException">Throws when <paramref name="source"/> is not correct format.</exception>
-        /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Int64.MinValue"/> or greater than <see cref="Int32.MaxValue"/>.</exception>
+        /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Double.MinValue"/> or greater than <see cref="Double.MaxValue"/>.</exception>
         public static double ToDouble(this string source) {
             return double.Parse(source);
         }
@@ -146,7 +146,7 @@
         /// <returns>Return converted <see cref="Double"/>.</returns>
         /// <exception cref="ArgumentNullException">Throws when <paramref name="source"/> is null.</exception>
         /// <exception cref="FormatException">Throws when <paramref name="source"/> is not correct format.</exception>
-        /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Int64.MinValue"/> or greater than <see cref="Int32.MaxValue"/>.</exception>
+        /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Double.MinValue"/> or greater than <see cref="Double.MaxValue"/>.</exception>
         /// <exception cref="ArgumentException">Throws when <paramref name="style"/> is not valid <see cref="NumberStyles"/></exception>
         public static double ToDouble(this string source, NumberStyles style) {
             return double.Parse(source, style, NumberFormatInfo.CurrentInfo);
