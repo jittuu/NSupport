@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("NSupport")]
 [assembly: AssemblyDescription("A .Net port of ActiveSupport library of Ruby on Rails. The goal is to extend Base Class Library for Common Usage with human readable syntax.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Innwa Group")]
+[assembly: AssemblyCompany("jittuu")]
 [assembly: AssemblyProduct("NSupport")]
-[assembly: AssemblyCopyright("Copyright © Innwa Group 2011")]
+[assembly: AssemblyCopyright("Copyright © Soe Moe 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
