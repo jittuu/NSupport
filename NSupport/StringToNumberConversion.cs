@@ -172,5 +172,31 @@
             var result = 0.0;
             return double.TryParse(source, style, NumberFormatInfo.CurrentInfo, out result) ? (double?)result : null;
         }
+
+        /// <summary>
+        /// Return converted <see cref="Decimal"/>.
+        /// </summary>
+        /// <param name="source">A <see cref="string"/> instance.</param>        
+        /// <returns>A converted <see cref="Decimal"/>.</returns>
+        /// <exception cref="ArgumentNullException">Throws when <paramref name="source"/> is null.</exception>
+        /// <exception cref="FormatException">Throws when <paramref name="source"/> is not correct format.</exception>
+        /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Decimal.MinValue"/> or greater than <see cref="Decimal.MaxValue"/>.</exception>
+        public static decimal ToDecimal(this string source) {
+            return decimal.Parse(source);
+        }
+
+        /// <summary>
+        /// Return converted <see cref="Decimal"/>.
+        /// </summary>
+        /// <param name="source">A <see cref="string"/> instance.</param>
+        /// <param name="style">A <see cref="NumberStyles" /> to parse against <paramref name="source"/>.</param>
+        /// <returns>Return converted <see cref="Decimal"/>.</returns>
+        /// <exception cref="ArgumentNullException">Throws when <paramref name="source"/> is null.</exception>
+        /// <exception cref="FormatException">Throws when <paramref name="source"/> is not correct format.</exception>
+        /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Decimal.MinValue"/> or greater than <see cref="Decimal.MaxValue"/>.</exception>
+        /// <exception cref="ArgumentException">Throws when <paramref name="style"/> is not valid <see cref="NumberStyles"/></exception>
+        public static decimal ToDecimal(this string source, NumberStyles style) {
+            return decimal.Parse(source, style, NumberFormatInfo.CurrentInfo);
+        }
     }
 }

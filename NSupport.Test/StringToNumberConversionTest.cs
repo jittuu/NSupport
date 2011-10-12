@@ -402,5 +402,66 @@
                 Assert.Null(kv.Key.AsDouble(kv.Value));
             }
         }
+
+        [Fact]
+        public void Test_ToDecimal_for_valid_strings() {
+            var validValues = new Dictionary<string, decimal>() { 
+                { "1234.25", 1234.25m }, 
+                {"  1234.25", 1234.25m }, 
+                {"1234.25   ", 1234.25m }, 
+                {"   1234.25  ", 1234.25m},
+                {"+1234.25", 1234.25m}, 
+                {"  -1234.25  ", -1234.25m}
+            };
+
+            foreach (var kv in validValues) {
+                Assert.Equal(kv.Value, kv.Key.ToDecimal());
+            }
+        }
+
+        [Fact]
+        public void Test_ToDecimal_for_invalid_strings() {
+            var invalidValues = new string[] { 
+                "1,..,000", "  1234..", "1234.32.00   ", "   $1234  "
+            };
+
+            foreach (var value in invalidValues) {
+                Assert.Throws<FormatException>(() => {
+                    value.ToDecimal();
+                });
+            }
+        }
+
+        [Fact]
+        public void Test_ToDecimal_with_NumberStyles_for_valid_strings() {
+            var validValues = new Tuple<string, NumberStyles, decimal>[]{ 
+                new Tuple<string, NumberStyles, decimal>("123.25", NumberStyles.AllowDecimalPoint, 
+                    123.25m),
+                new Tuple<string, NumberStyles, decimal>("$123", NumberStyles.AllowCurrencySymbol, 
+                    123m),
+                new Tuple<string, NumberStyles, decimal>("$123.25", NumberStyles.AllowDecimalPoint | NumberStyles.AllowCurrencySymbol, 
+                    123.25m),
+            };
+
+            foreach (var value in validValues) {
+                Assert.Equal(value.Item3, value.Item1.ToDecimal(value.Item2));
+            }
+        }
+
+        [Fact]
+        public void Test_ToDecimal_with_NumberStyles_for_invalid_strings() {
+            var invalidValues = new Dictionary<string, NumberStyles> { 
+                { "$123", NumberStyles.AllowDecimalPoint },
+                { "123.25", NumberStyles.AllowCurrencySymbol },
+                { "+123.25", NumberStyles.AllowDecimalPoint | NumberStyles.AllowCurrencySymbol }
+            };
+
+            foreach (var kv in invalidValues) {
+                Assert.Throws<FormatException>(() => {
+                    kv.Key.ToDecimal(kv.Value);
+                });
+            }
+        }
+
     }
 }
