@@ -41,7 +41,7 @@
         /// <exception cref="FormatException">Throws when <paramref name="source"/> is not correct format.</exception>
         /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Int32.MinValue"/> or greater than <see cref="Int32.MaxValue"/>.</exception>
         public static int ToInt32(this string source) {
-            return source.ToInt32(NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite | NumberStyles.AllowLeadingSign);
+            return int.Parse(source);
         }
 
         /// <summary>
@@ -64,7 +64,8 @@
         /// <param name="source">A <see cref="string"/> instance.</param>
         /// <returns>An instance of <see cref="Int32"/> if successfully parsed, otherwise null (Nothing in Visual Basic).</returns>
         public static int? AsInt32(this string source) {
-            return source.AsInt32(NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite | NumberStyles.AllowLeadingSign);
+            var result = 0;
+            return int.TryParse(source, out result) ? (int?)result : null;
         }
 
         /// <summary>
@@ -87,7 +88,7 @@
         /// <exception cref="FormatException">Throws when <paramref name="source"/> is not correct format.</exception>
         /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Int64.MinValue"/> or greater than <see cref="Int32.MaxValue"/>.</exception>
         public static long ToInt64(this string source) {
-            return source.ToInt64(NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite | NumberStyles.AllowLeadingSign);
+            return long.Parse(source);
         }
 
         /// <summary>
@@ -110,7 +111,8 @@
         /// <param name="source">A <see cref="string"/> instance.</param>
         /// <returns>An instance of <see cref="Int64"/> if successfully parsed, otherwise null (Nothing in Visual Basic).</returns>
         public static long? AsInt64(this string source) {
-            return source.AsInt64(NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite | NumberStyles.AllowLeadingSign);
+            var result = 0L;
+            return long.TryParse(source, out result) ? (long?)result : null;
         }
 
         /// <summary>
