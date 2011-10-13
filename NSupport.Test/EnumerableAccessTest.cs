@@ -1,7 +1,7 @@
 ﻿namespace NSupport.Test {
+    using System;
     using System.Linq;
     using Xunit;
-    using System;
 
     public class EnumerableAccessTest {
         [Fact]

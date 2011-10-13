@@ -26,6 +26,8 @@
         /// <param name="args">An object array that contains zero or more objects to format. </param>
         /// <returns>A copy of <paramref name="source"/> in which the format items have been replaced by the string representation of the corresponding objects in <paramref name="args"/>.</returns>
         public static string FormatWith(this string source, IFormatProvider provider, params object[] args) {
+            Guard.ArgumentNotNull("source", source);
+
             return String.Format(provider, source, args);
 
         }

@@ -46,6 +46,7 @@
     <Compile Include="DateTimeCalculations.cs" />
     <Compile Include="DateTimeOffsetCalculations.cs" />
     <Compile Include="EnumerableAccess.cs" />
+    <Compile Include="Guard.cs" />
     <Compile Include="IntegerAccess.cs" />
     <Compile Include="IntegerByte.cs" />
     <Compile Include="IntegerEvenOdd.cs" />

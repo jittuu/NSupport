@@ -5,6 +5,14 @@
     
     public class StringFormattingTest {
         [Fact]
+        public void Test_FormatWith_with_null() {
+            string nullString = null;
+            var ex = Assert.Throws<ArgumentNullException>(() => nullString.FormatWith(1));
+
+            Assert.Equal("source", ex.ParamName);
+        }
+
+        [Fact]
         public void Test_FormatWith() {
             Assert.Equal("This is formatting integer 1 with {1:00}: 02", "This is formatting integer {0} with {{1:00}}: {1:00}".FormatWith(1, 2));
         }
