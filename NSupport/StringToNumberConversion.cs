@@ -145,6 +145,8 @@
         /// <exception cref="FormatException">Throws when <paramref name="source"/> is not correct format.</exception>
         /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Double.MinValue"/> or greater than <see cref="Double.MaxValue"/>.</exception>
         public static double ToDouble(this string source) {
+            Guard.ArgumentNotNull("source", source);
+
             return double.Parse(source);
         }
 
@@ -159,6 +161,8 @@
         /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Double.MinValue"/> or greater than <see cref="Double.MaxValue"/>.</exception>
         /// <exception cref="ArgumentException">Throws when <paramref name="style"/> is not valid <see cref="NumberStyles"/></exception>
         public static double ToDouble(this string source, NumberStyles style) {
+            Guard.ArgumentNotNull("source", source);
+
             return double.Parse(source, style, NumberFormatInfo.CurrentInfo);
         }
 

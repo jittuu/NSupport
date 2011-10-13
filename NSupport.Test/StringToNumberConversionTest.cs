@@ -343,6 +343,14 @@
         }
 
         [Fact]
+        public void Test_ToDouble_for_null_string() {
+            string nullString = null;
+            var ex = Assert.Throws<ArgumentNullException>(() => nullString.ToDouble());
+
+            Assert.Equal(ex.ParamName, "source");
+        }
+
+        [Fact]
         public void Test_ToDouble_for_valid_strings() {
             var validValues = new Dictionary<string, double>() { 
                 { "1234.25", 1234.25 }, 
@@ -369,6 +377,14 @@
                     value.ToDouble();
                 });
             }
+        }
+
+        [Fact]
+        public void Test_ToDouble_with_NumberStyles_for_null_string() {
+            string nullString = null;
+            var ex = Assert.Throws<ArgumentNullException>(() => nullString.ToDouble(NumberStyles.AllowDecimalPoint));
+
+            Assert.Equal(ex.ParamName, "source");
         }
 
         [Fact]
