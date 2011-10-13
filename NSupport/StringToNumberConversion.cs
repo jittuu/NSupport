@@ -43,6 +43,8 @@
         /// <exception cref="FormatException">Throws when <paramref name="source"/> is not correct format.</exception>
         /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Int32.MinValue"/> or greater than <see cref="Int32.MaxValue"/>.</exception>
         public static int ToInt32(this string source) {
+            Guard.ArgumentNotNull("source", source);
+
             return int.Parse(source);
         }
 
@@ -57,6 +59,8 @@
         /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Int32.MinValue"/> or greater than <see cref="Int32.MaxValue"/>.</exception>
         /// <exception cref="ArgumentException">Throws when <paramref name="style"/> is not valid <see cref="NumberStyles"/></exception>
         public static int ToInt32(this string source, NumberStyles style) {
+            Guard.ArgumentNotNull("source", source);
+
             return int.Parse(source, style, NumberFormatInfo.CurrentInfo);
         }
 
