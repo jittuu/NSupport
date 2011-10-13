@@ -301,7 +301,7 @@
         [Fact]
         public void Test_AsInt64_for_invalid_strings() {
             var invalidValues = new string[] { 
-                "1,000", "  1234.", "1234.32   ", "   $9223372036854  "
+                null, "1,000", "  1234.", "1234.32   ", "   $9223372036854  "
             };
 
             foreach (var value in invalidValues) {
@@ -332,6 +332,10 @@
                 { "123.0", NumberStyles.AllowCurrencySymbol },
                 { "+9223372036854.0", NumberStyles.AllowDecimalPoint | NumberStyles.AllowCurrencySymbol }
             };
+
+            string nullString = null;
+            Assert.Null(nullString.AsInt64(NumberStyles.AllowDecimalPoint));
+
 
             foreach (var kv in invalidValues) {
                 Assert.Null(kv.Key.AsInt64(kv.Value));
