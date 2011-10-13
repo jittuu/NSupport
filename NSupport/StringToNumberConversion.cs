@@ -28,6 +28,8 @@
         /// <param name="style">A <see cref="NumberStyles" /> to check against <paramref name="source"/>.</param>
         /// <returns>Returns true if the <see cref="String"/> can be convert to number with provided <see cref=" NumberStyles"/>, otherwise false.</returns>
         public static bool IsNumber(this string source, NumberStyles style) {
+            Guard.ArgumentNotNull("source", source);
+
             decimal parseValue;
             return decimal.TryParse(source, style, NumberFormatInfo.CurrentInfo, out parseValue);
         }

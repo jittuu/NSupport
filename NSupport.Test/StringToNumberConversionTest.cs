@@ -6,6 +6,14 @@
 
     public class StringToNumberConversionTest {
         [Fact]
+        public void Test_IsNumber_with_null() {
+            string nullString = null;
+            var ex = Assert.Throws<ArgumentNullException>(() => nullString.IsNumber());
+
+            Assert.Equal(ex.ParamName, "source");
+        }
+
+        [Fact]
         public void Test_IsNumber_for_valid_strings() {
             var validValues = new string[] { 
                 "1234", "  1234", "1234   ", "   1234  ",
@@ -29,6 +37,14 @@
             foreach (var value in invalidValues) {
                 Assert.False(value.IsNumber(), string.Format("'{0}' should NOT be valid number but now it is.", value));
             }
+        }
+
+        [Fact]
+        public void Test_IsNumber_with_NumberStyles_for_null_string() {
+            string nullString = null;
+            var ex = Assert.Throws<ArgumentNullException>(() => nullString.IsNumber(NumberStyles.Integer));
+
+            Assert.Equal(ex.ParamName, "source");
         }
 
         [Fact]
