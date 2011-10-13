@@ -206,6 +206,14 @@
         }
 
         [Fact]
+        public void Test_ToInt64_for_null_string() {
+            string nullString = null;
+            var ex = Assert.Throws<ArgumentNullException>(() => nullString.ToInt64());
+
+            Assert.Equal(ex.ParamName, "source");
+        }
+
+        [Fact]
         public void Test_ToInt64_for_valid_strings() {
             var validValues = new Dictionary<string, long>() { 
                 { "1234", 1234 }, 
@@ -233,6 +241,14 @@
                     value.ToInt64();
                 });
             }
+        }
+
+        [Fact]
+        public void Test_ToInt64_with_NumberStyles_for_null_string() {
+            string nullString = null;
+            var ex = Assert.Throws<ArgumentNullException>(() => nullString.ToInt64(NumberStyles.AllowDecimalPoint));
+
+            Assert.Equal(ex.ParamName, "source");
         }
 
         [Fact]
