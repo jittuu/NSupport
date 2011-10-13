@@ -196,6 +196,8 @@
         /// <exception cref="FormatException">Throws when <paramref name="source"/> is not correct format.</exception>
         /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Decimal.MinValue"/> or greater than <see cref="Decimal.MaxValue"/>.</exception>
         public static decimal ToDecimal(this string source) {
+            Guard.ArgumentNotNull("source", source);
+
             return decimal.Parse(source);
         }
 
@@ -210,6 +212,8 @@
         /// <exception cref="OverflowException">Throws when <paramref name="source"/> represents a number less than <see cref="Decimal.MinValue"/> or greater than <see cref="Decimal.MaxValue"/>.</exception>
         /// <exception cref="ArgumentException">Throws when <paramref name="style"/> is not valid <see cref="NumberStyles"/></exception>
         public static decimal ToDecimal(this string source, NumberStyles style) {
+            Guard.ArgumentNotNull("source", source);
+
             return decimal.Parse(source, style, NumberFormatInfo.CurrentInfo);
         }
 

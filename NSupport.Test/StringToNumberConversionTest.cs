@@ -478,6 +478,14 @@
         }
 
         [Fact]
+        public void Test_ToDecimal_for_null_string() {
+            string nullString = null;
+            var ex = Assert.Throws<ArgumentNullException>(() => nullString.ToDecimal());
+
+            Assert.Equal(ex.ParamName, "source");
+        }
+
+        [Fact]
         public void Test_ToDecimal_for_valid_strings() {
             var validValues = new Dictionary<string, decimal>() { 
                 { "1234.25", 1234.25m }, 
@@ -504,6 +512,14 @@
                     value.ToDecimal();
                 });
             }
+        }
+
+        [Fact]
+        public void Test_ToDecimal_with_NumberStyles_for_null_string() {
+            string nullString = null;
+            var ex = Assert.Throws<ArgumentNullException>(() => nullString.ToDecimal(NumberStyles.AllowDecimalPoint));
+
+            Assert.Equal(ex.ParamName, "source");
         }
 
         [Fact]
