@@ -41,6 +41,14 @@
         }
 
         [Fact]
+        public void Test_To_with_null() {
+            string[] source = null;
+            var ex = Assert.Throws<ArgumentNullException>(() => source.To(1));
+
+            Assert.Equal(ex.ParamName, "source");
+        }
+
+        [Fact]
         public void Test_To_out_range_index() {
             var array = new string[] { "a", "b", "c", "d" }.To(10);
 
