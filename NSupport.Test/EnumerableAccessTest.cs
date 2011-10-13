@@ -1,8 +1,17 @@
 ﻿namespace NSupport.Test {
     using System.Linq;
     using Xunit;
+    using System;
 
     public class EnumerableAccessTest {
+        [Fact]
+        public void Test_From_with_null() {
+            string[] source = null;
+            var ex = Assert.Throws<ArgumentNullException>(() => source.From(0));
+
+            Assert.Equal(ex.ParamName, "source");
+        }
+
         [Fact]
         public void Test_From_with_index_0() {
             var array = new string[] { "a", "b", "c", "d" }.From(0);
