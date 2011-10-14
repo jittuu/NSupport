@@ -65,6 +65,66 @@
         }
 
         [Fact]
+        public void Test_Encrypt_for_null_string() {
+            string nullString = null;
+
+            var ex = Assert.Throws<ArgumentNullException>(() => nullString.Encrypt("sharedSecret"));
+
+            Assert.Equal("source", ex.ParamName);
+        }
+
+        [Fact]
+        public void Test_Encrypt_for_null_sharedSecret() {
+            var ex = Assert.Throws<ArgumentNullException>(() => "text_to_encrypt".Encrypt(null));
+
+            Assert.Equal("sharedSecret", ex.ParamName);
+        }
+
+        [Fact]
+        public void Test_Encrypt_for_empty_string() {
+            var ex = Assert.Throws<ArgumentException>(() => "".Encrypt("sharedSecret"));
+
+            Assert.Equal("source", ex.ParamName);
+        }
+
+        [Fact]
+        public void Test_Encrypt_for_empty_sharedSecret() {
+            var ex = Assert.Throws<ArgumentException>(() => "text_to_encrypt".Encrypt(""));
+
+            Assert.Equal("sharedSecret", ex.ParamName);
+        }
+
+        [Fact]
+        public void Test_Decrypt_for_null_string() {
+            string nullString = null;
+
+            var ex = Assert.Throws<ArgumentNullException>(() => nullString.Decrypt("sharedSecret"));
+
+            Assert.Equal("source", ex.ParamName);
+        }
+
+        [Fact]
+        public void Test_Decrypt_for_null_sharedSecret() {
+            var ex = Assert.Throws<ArgumentNullException>(() => "text_to_decrypt".Decrypt(null));
+
+            Assert.Equal("sharedSecret", ex.ParamName);
+        }
+
+        [Fact]
+        public void Test_Decrypt_for_empty_string() {
+            var ex = Assert.Throws<ArgumentException>(() => "".Decrypt("sharedSecret"));
+
+            Assert.Equal("source", ex.ParamName);
+        }
+
+        [Fact]
+        public void Test_Decrypt_for_empty_sharedSecret() {
+            var ex = Assert.Throws<ArgumentException>(() => "text_to_encrypt".Decrypt(""));
+
+            Assert.Equal("sharedSecret", ex.ParamName);
+        }
+
+        [Fact]
         public void Test_Encrypt_Decrypt() {
             var text = "This is my text!.";
             var sharedSecret = "sharedSecret";

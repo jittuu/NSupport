@@ -35,6 +35,12 @@
         /// <param name="sharedSecret">A shared secret.</param>
         /// <returns>Encrypted <see cref="String"/>.</returns>
         public static string Encrypt(this string source, string sharedSecret) {
+            Guard.ArgumentNotNull("source", source);
+            Guard.StringNotEmpty("source", source);
+
+            Guard.ArgumentNotNull("sharedSecret", sharedSecret);
+            Guard.StringNotEmpty("sharedSecret", sharedSecret);
+
             // Create an Rijndael object with the specified key and IV.
             using (Rijndael rijndael = CreateRijndaelManaged(sharedSecret)) {
 
@@ -62,6 +68,11 @@
         /// <param name="sharedSecret">A shared secret.</param>
         /// <returns>Decrypted <see cref="String"/>.</returns>
         public static string Decrypt(this string source, string sharedSecret) {
+            Guard.ArgumentNotNull("source", source);
+            Guard.StringNotEmpty("source", source);
+            Guard.ArgumentNotNull("sharedSecret", sharedSecret);
+            Guard.StringNotEmpty("sharedSecret", sharedSecret);
+
             // Create an Rijndael object with the specified key and IV.
             using (var rijndael = CreateRijndaelManaged(sharedSecret)) {                
                 // Create a Decryptor to perform the stream transform.
