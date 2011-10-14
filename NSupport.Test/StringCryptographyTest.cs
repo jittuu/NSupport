@@ -4,6 +4,22 @@
 
     public class StringCryptographyTest {
         [Fact]
+        public void Test_ToHashString_for_null_string() {
+            string nullString = null;
+
+            var ex = Assert.Throws<ArgumentNullException>(() => nullString.ToHashString("sfdsfd"));
+
+            Assert.Equal("source", ex.ParamName);
+        }
+
+        [Fact]
+        public void Test_ToHashString_for_null_salt() {
+            var ex = Assert.Throws<ArgumentNullException>(() => "MySecret".ToHashString(null));
+
+            Assert.Equal("salt", ex.ParamName);
+        }
+
+        [Fact]
         public void Test_ToHashString_should_not_return_same_value() {
             var password = "MySecret";
             var salt = Guid.NewGuid().ToString("N");

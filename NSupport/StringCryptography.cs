@@ -16,6 +16,9 @@
         /// <param name="salt">An instance of <see cref="String"/> for salting before hashing.</param>
         /// <returns>A hash string.</returns>
         public static string ToHashString(this string source, string salt) {
+            Guard.ArgumentNotNull("source", source);
+            Guard.ArgumentNotNull("salt", salt);
+
             var sourceBytes = Encoding.UTF8.GetBytes(source);
             var saltBytes = Encoding.UTF8.GetBytes(salt);
                         
