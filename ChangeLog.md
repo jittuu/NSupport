@@ -1,4 +1,4 @@
-﻿# Version 1.3.1
+# Version 1.3.1
 
 - added null checking for *String* extension method _ToHashString_.
 - added null and empty string checking for *String* extension method _Encrypt, Decrypt_.
