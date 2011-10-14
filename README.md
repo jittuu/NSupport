@@ -4,13 +4,15 @@ A .Net port of ActiveSupport library of Ruby on Rails. The goal is to extend Bas
 
 # Installation
 
+You can use NSupport by using either _Nuget_ **OR** _DLL download_.
+
 ### Nuget
 > Install-Package NSupport
 
 More information about nuget package at http://www.nuget.org/List/Packages/NSupport.
 
 ### DLL download
-You can download the latest release dll from [**Here**](https://github.com/downloads/soemoe/NSupport/NSupport%20v1.1.zip) and add reference to your project.
+You can download the [latest released DLL](https://github.com/downloads/jittuu/NSupport/NSupport%20v1.3.1.zip) and add reference to your project.
 
 # Usage
 
@@ -20,7 +22,7 @@ You can download the latest release dll from [**Here**](https://github.com/downl
     using NSupport;
 ```
 
-NSupport extends [DateTime](http://msdn.microsoft.com/en-us/library/system.datetime.aspx) to allow you to write as below and more:
+NSupport extends [DateTime](http://msdn.microsoft.com/en-us/library/system.datetime.aspx) and [DateTimeOffset](http://msdn.microsoft.com/en-us/library/system.datetimeoffset.aspx) to allow you to write as below and more:
 
 ```c#
 	var june18 = new DateTime(2011,6,18);
@@ -48,7 +50,7 @@ NSupport extends [DateTime](http://msdn.microsoft.com/en-us/library/system.datet
 	june18.Change(years: 2010); // 2010/06/18
 ```
 
-and also extends [Integer](http://msdn.microsoft.com/en-us/library/system.int32.aspx) to enable to write as:
+it also extends [Integer](http://msdn.microsoft.com/en-us/library/system.int32.aspx) to enable to write as:
 
 ```c#
 	2.IsEven(); // true
@@ -60,9 +62,14 @@ and also extends [Integer](http://msdn.microsoft.com/en-us/library/system.int32.
 	1.Byte(); // 1
 	1.Kilobyte(); // 1024
 	2.Megabytes(); // 2*1024*1024
+	
+	// looping 10 times
+	10.Times(() => {
+		// do something which will be executed for 10 times.
+	});
 ```
 
-and when [Integer](http://msdn.microsoft.com/en-us/library/system.int32.aspx) love [TimeSpan](http://msdn.microsoft.com/en-us/library/system.timespan.aspx)
+when [Integer](http://msdn.microsoft.com/en-us/library/system.int32.aspx) loves [TimeSpan](http://msdn.microsoft.com/en-us/library/system.timespan.aspx)
 
 ```c#
 	1.Hour(); // Timespan of 1 hour
@@ -72,7 +79,48 @@ and when [Integer](http://msdn.microsoft.com/en-us/library/system.int32.aspx) lo
 	10.Hours().Since(new DateTime(2011,6,18)); // 2011/06/18 10:00:00
 ```
 
+converting **string** to _numbers_. 
+
+```c#
+	"10".ToInt32(); // convert to int 10
+	"10,000".ToDecimal(); // convert to decimal 10000 
+	
+	"5".AsInt32(); // convert to int? 5
+	"notValidNumber".AsInt32(); // return null
+	
+	var i = "notValidNumber".AsInt32() ?? -1; // i will have -1 (no more int.TryParse :) )	
+```
+
+formatting **string**.
+
+```c#
+	"{0} is {1} years old".FormatWith("Michael", 23); // Michael is 23 years old.	
+```
+
+securing **text**
+
+```c#
+  var password = "awesomeSecretPassword";
+  var salt = "123jfe3EJV24098EC"; // or Guid.NewGuid().ToString("N");
+  
+  // hash password, so that no one can retrieve password
+  var digestPassword = password.ToHashString(salt);
+  
+  var importantText = "this is super important text, so it need to be encrypt.";
+  var secretKey = "thisIsSecretKey";
+  
+  // encrypt text so that other cannot read but I have key, so I can decrypt back to original one
+  var encryptedText = importantText.Encrypt(secretKey);
+  
+  // decrypt to original
+	var decryptedText = encryptedText.Decrypt(secertKey); // decryptedText == importantText
+```
+
 # CONTRIBUTE
+
+If you find any bug, please file a bug in [Github Issue](https://github.com/jittuu/NSupport/issues).
+
+If you have any idea for extending BCL or any doubt in using NSupport, please post message in [discussion board](http://groups.google.com/group/nsupport-lib).
 
 If you want to hack NSupport, start by forking my repo on GitHub:
 
