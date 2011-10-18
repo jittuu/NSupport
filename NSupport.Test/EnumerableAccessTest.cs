@@ -76,5 +76,26 @@
             Assert.Equal(1, array.Count());
             Assert.Single(array, "a");
         }
+
+        [Fact]
+        public void Test_IsEmpty_with_null_collection() {
+            int[] nullArray = null;
+
+            Assert.Equal(true, nullArray.IsEmpty());
+        }
+
+        [Fact]
+        public void Test_IsEmpty_with_empty_collection() {
+            var emptyCol = Enumerable.Empty<int>();
+
+            Assert.Equal(true, emptyCol.IsEmpty());
+        }
+
+        [Fact]
+        public void Test_IsEmpty_with_non_empty_collection() {
+            var col = new int[] { 1 };
+
+            Assert.Equal(false, col.IsEmpty());
+        }
     }
 }

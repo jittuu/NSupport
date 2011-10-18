@@ -27,5 +27,15 @@
         public static IEnumerable<T> To<T>(this IEnumerable<T> source, int index) {
             return source.Take(++index);
         }
+
+        /// <summary>
+        /// Determines whether a sequence is empty.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+        /// <param name="source">An <see cref="IEnumerable{T}"/> to check for emptiness.</param>
+        /// <returns>true if the source sequence is null or contains no elements; otherwise, false.</returns>
+        public static bool IsEmpty<T>(this IEnumerable<T> source) {
+            return source == null || !source.Any();
+        }
     }
 }
