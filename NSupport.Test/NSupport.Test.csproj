@@ -55,6 +55,7 @@
     <Compile Include="IntegerEvenOddTest.cs" />
     <Compile Include="IntegerTimeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringAccessTest.cs" />
     <Compile Include="StringCryptographyTest.cs" />
     <Compile Include="StringToNumberConversionTest.cs" />
     <Compile Include="StringFormattingTest.cs">
