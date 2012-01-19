@@ -22,6 +22,12 @@
         }
 
         [Fact]
+        public void Test_LastIndexOf_with_null() {
+            int[] nullArray = null;
+            Assert.Throws<ArgumentNullException>(() => nullArray.LastIndexOf(1));
+        }
+
+        [Fact]
         public void Test_LastIndexOf_with_existing_value() {
             var ints = new[] { 1, 2, 3, 4, 5, 1 };
             Assert.Equal(5, ints.LastIndexOf(1));
