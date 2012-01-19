@@ -55,6 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringAccess.cs" />
     <Compile Include="StringCryptography.cs" />
+    <Compile Include="StringHumanization.cs" />
     <Compile Include="StringToNumberConversion.cs" />
     <Compile Include="StringFormatting.cs">
       <SubType>Code</SubType>
