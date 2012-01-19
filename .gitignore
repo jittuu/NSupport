@@ -7,3 +7,4 @@
 packages/
 [Bb]uild/
 [Nn]u[Pp]ack/
+*.local.xml
