@@ -47,6 +47,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArrayAccessTest.cs" />
     <Compile Include="DateTimeCalculationsTest.cs" />
     <Compile Include="DateTimeOffsetCalculationsTest.cs" />
     <Compile Include="EnumerableAccessTest.cs" />

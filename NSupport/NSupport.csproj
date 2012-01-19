@@ -43,6 +43,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArrayAccess.cs" />
     <Compile Include="DateTimeCalculations.cs" />
     <Compile Include="DateTimeOffsetCalculations.cs" />
     <Compile Include="EnumerableAccess.cs" />
