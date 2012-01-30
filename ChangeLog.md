@@ -5,6 +5,8 @@
 - added _IsNullOrEmpty_ and _IsBlank_ method to _String_.
 - added _ToTitleCase_ method to _String_.
 
+[Compare View](https://github.com/jittuu/NSupport/compare/v1.3.1...v1.3.2)
+
 # Version 1.3.1
 
 - added null checking for *String* extension method _ToHashString_.
