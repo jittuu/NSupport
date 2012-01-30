@@ -6,7 +6,8 @@
     <authors>jittuu</authors>
     <owners>jittuu</owners>
     <licenseUrl>https://github.com/jittuu/NSupport/blob/master/MIT-LICENSE.txt</licenseUrl>
-    <projectUrl>https://github.com/jittuu/NSupport</projectUrl>    
+    <projectUrl>https://github.com/jittuu/NSupport</projectUrl>
+    <iconUrl>http://i.imgur.com/I31KT.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A .Net port of ActiveSupport library of Ruby on Rails. The goal is to extend Base Class Library for Common Usage with human readable syntax.</description>
     <tags>Utility .net4.0 ActiveSupport Ruby-on-Rails</tags>
