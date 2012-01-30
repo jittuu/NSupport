@@ -1,3 +1,10 @@
+# Version 1.3.2
+
+- added _IndexOf_ and _LastIndexOf_ method to _Array_.
+- added _IsEmpty_ method to _IEnumerable_.
+- added _IsNullOrEmpty_ and _IsBlank_ method to _String_.
+- added _ToTitleCase_ method to _String_.
+
 # Version 1.3.1
 
 - added null checking for *String* extension method _ToHashString_.
