@@ -9,3 +9,5 @@ packages/
 [Nn]u[Pp]ack/
 *.local.xml
 *.crunchsolution.cache
+*.ncrunchsolution
+*.ncrunchproject
