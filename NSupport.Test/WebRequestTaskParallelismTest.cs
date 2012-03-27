@@ -1,7 +1,7 @@
-﻿namespace NSupport.Test {    
-    using Xunit;
-    using System.Net;
+﻿namespace NSupport.Test {
     using System.IO;
+    using System.Net;
+    using Xunit;
 
     public class WebRequestTaskParallelismTest {
         [Fact]

@@ -1,8 +1,7 @@
 ﻿namespace NSupport.Test {
-    using System;
-    using Xunit;
     using System.IO;
     using System.Text;
+    using Xunit;
 
     public class StreamTaskParallelismTest {
         [Fact]
