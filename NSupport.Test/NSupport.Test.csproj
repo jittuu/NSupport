@@ -65,6 +65,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TimeSpanDateTimeOffsetTest.cs" />
+    <Compile Include="WebRequestTaskParallelismTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NSupport\NSupport.csproj">
