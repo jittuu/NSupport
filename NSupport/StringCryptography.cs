@@ -21,11 +21,12 @@
 
             var sourceBytes = Encoding.UTF8.GetBytes(source);
             var saltBytes = Encoding.UTF8.GetBytes(salt);
-                        
-            var sourceWithSalt = sourceBytes.Concat(saltBytes).ToArray();
-            var hash = new SHA256Managed().ComputeHash(sourceWithSalt);
 
-            return Convert.ToBase64String(hash);
+            var sourceWithSalt = sourceBytes.Concat(saltBytes).ToArray();
+            using (var sha = new SHA256Managed()) {
+                var hash = sha.ComputeHash(sourceWithSalt);
+                return Convert.ToBase64String(hash);
+            }
         }
 
         /// <summary>
@@ -42,7 +43,8 @@
             Guard.StringNotEmpty("sharedSecret", sharedSecret);
 
             // Create an Rijndael object with the specified key and IV.
-            using (Rijndael rijndael = CreateRijndaelManaged(sharedSecret)) {
+            using (var rijndael = new RijndaelManaged()) {
+                SetupRijndaelManaged(rijndael, sharedSecret);
 
                 // Create a decrytor to perform the stream transform.
                 ICryptoTransform encryptor = rijndael.CreateEncryptor(rijndael.Key, rijndael.IV);
@@ -60,7 +62,7 @@
                 }
             }
         }
-        
+
         /// <summary>
         /// Decrypt the string with Rijndael Symmetric Algorithm
         /// </summary>
@@ -74,11 +76,12 @@
             Guard.StringNotEmpty("sharedSecret", sharedSecret);
 
             // Create an Rijndael object with the specified key and IV.
-            using (var rijndael = CreateRijndaelManaged(sharedSecret)) {                
+            using (var rijndael = new RijndaelManaged()) {
+                SetupRijndaelManaged(rijndael, sharedSecret);
                 // Create a Decryptor to perform the stream transform.
                 ICryptoTransform decryptor = rijndael.CreateDecryptor(rijndael.Key, rijndael.IV);
 
-                byte[] buffer = Convert.FromBase64String(source);                
+                byte[] buffer = Convert.FromBase64String(source);
                 // Create the streams used for decryption.
                 using (MemoryStream msDecrypt = new MemoryStream(buffer)) {
                     using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read)) {
@@ -93,15 +96,12 @@
             }
         }
 
-        private static RijndaelManaged CreateRijndaelManaged(string sharedSecret) {
+        private static void SetupRijndaelManaged(RijndaelManaged rijndael, string sharedSecret) {
             var salt = Encoding.ASCII.GetBytes("fc24b719cd7FBFB8B7C628E");
-            var rijndael = new RijndaelManaged();
-            var key = new Rfc2898DeriveBytes(sharedSecret, salt);
-
-            rijndael.Key = key.GetBytes(rijndael.KeySize / 8);
-            rijndael.IV = key.GetBytes(rijndael.BlockSize / 8);
-
-            return rijndael;
+            using (var key = new Rfc2898DeriveBytes(sharedSecret, salt)) {
+                rijndael.Key = key.GetBytes(rijndael.KeySize / 8);
+                rijndael.IV = key.GetBytes(rijndael.BlockSize / 8);
+            }
         }
     }
 }
