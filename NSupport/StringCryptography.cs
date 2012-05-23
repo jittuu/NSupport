@@ -1,5 +1,6 @@
 ﻿namespace NSupport {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
     using System.Security.Cryptography;
@@ -35,6 +36,7 @@
         /// <param name="source">The <see cref="String"/> to encrypt.</param>
         /// <param name="sharedSecret">A shared secret.</param>
         /// <returns>Encrypted <see cref="String"/>.</returns>
+        [SuppressMessage("Microsoft.Usage", "CA2202:Do not dispose objects multiple times", Justification = "dispose method can be called multiple times")]
         public static string Encrypt(this string source, string sharedSecret) {
             Guard.ArgumentNotNull("source", source);
             Guard.StringNotEmpty("source", source);
@@ -69,6 +71,7 @@
         /// <param name="source">The <see cref="String"/> to decrypt.</param>
         /// <param name="sharedSecret">A shared secret.</param>
         /// <returns>Decrypted <see cref="String"/>.</returns>
+        [SuppressMessage("Microsoft.Usage", "CA2202:Do not dispose objects multiple times", Justification = "dispose method can be called multiple times")]
         public static string Decrypt(this string source, string sharedSecret) {
             Guard.ArgumentNotNull("source", source);
             Guard.StringNotEmpty("source", source);
