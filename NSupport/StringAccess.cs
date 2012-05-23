@@ -20,12 +20,7 @@
         /// <param name="source">An instance of <see cref="string"/>.</param>
         /// <returns>true if <paramref name="source"/> is null or empty or only whitespace, otherwise false.</returns>
         public static bool IsBlank(this string source) {
-            if (string.IsNullOrEmpty(source)) {
-                return true;
-            }
-
-            var trimmedSource = source.Trim();
-            return (trimmedSource.Length == 0);
+            return string.IsNullOrWhiteSpace(source);
         }
     }
 }
