@@ -45,7 +45,7 @@
         public static int ToInt32(this string source) {
             Guard.ArgumentNotNull("source", source);
 
-            return int.Parse(source);
+            return int.Parse(source, NumberFormatInfo.CurrentInfo);
         }
 
         /// <summary>
@@ -96,7 +96,7 @@
         public static long ToInt64(this string source) {
             Guard.ArgumentNotNull("source", source);
 
-            return long.Parse(source);
+            return long.Parse(source, NumberFormatInfo.CurrentInfo);
         }
 
         /// <summary>
@@ -147,7 +147,7 @@
         public static double ToDouble(this string source) {
             Guard.ArgumentNotNull("source", source);
 
-            return double.Parse(source);
+            return double.Parse(source, NumberFormatInfo.CurrentInfo);
         }
 
         /// <summary>
@@ -198,7 +198,7 @@
         public static decimal ToDecimal(this string source) {
             Guard.ArgumentNotNull("source", source);
 
-            return decimal.Parse(source);
+            return decimal.Parse(source, NumberFormatInfo.CurrentInfo);
         }
 
         /// <summary>
