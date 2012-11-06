@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayAccess.cs" />
+    <Compile Include="CollectionAccess.cs" />
     <Compile Include="DateTimeCalculations.cs" />
     <Compile Include="DateTimeOffsetCalculations.cs" />
     <Compile Include="EnumerableAccess.cs" />
