@@ -38,5 +38,21 @@
             var ints = new[] { 1, 2, 3, 4, 5, 1 };
             Assert.Equal(-1, ints.LastIndexOf(7));
         }
+
+        [Fact]
+        public void Test_Empty_with_null() {
+            int[] ints = null;
+            Assert.Throws<ArgumentNullException>(() => ints.Empty());
+        }
+
+        [Fact]
+        public void Test_Empty_with_existing_value() {
+            var ints = new[] { 1, 2, 3, 4, 5, 1 };
+
+            var values = ints.Empty();
+
+            Assert.NotEmpty(ints);
+            Assert.Empty(values);
+        }
     }
 }

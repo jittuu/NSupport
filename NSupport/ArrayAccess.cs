@@ -30,5 +30,17 @@
 
             return Array.LastIndexOf<T>(source, value);
         }
+
+        /// <summary>
+        /// Create empty array of T without modifying <paramref name="source"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+        /// <param name="source">An instance of <see cref="Array"/>.</param>
+        /// <returns>Empty array of T.</returns>
+        public static T[] Empty<T>(this T[] source) {
+            Guard.ArgumentNotNull("source", source);
+            source = new T[] { };            
+            return source;
+        }
     }
 }
