@@ -17,7 +17,7 @@
         }
 
         /// <summary>
-        /// When overridden in a descendant class, provides an asynchronous version of the <see cref="WebRequest.GetRequestStream"/> method.
+        /// When overridden in a descendant class, provides an asynchronous version of the <see cref="WebRequest.BeginGetRequestStream"/> method.
         /// </summary>
         /// <param name="request">A <see cref="WebRequest"/> instance.</param>
         /// <returns>The created <see cref="Task{Stream}"/> that represents the asynchronous operation.</returns>

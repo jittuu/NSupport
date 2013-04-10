@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSupport", "NSupport\NSupport.csproj", "{33F8EE67-9717-4C0B-835E-B9C50B92DB83}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSupport.Test", "NSupport.Test\NSupport.Test.csproj", "{B7347DB4-AA88-4F6C-8B15-B2E5291E436A}"
